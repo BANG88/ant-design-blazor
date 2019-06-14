@@ -1,8 +1,6 @@
 @page "/button"
 
 <h3>ButtonDemo</h3>
-
-
 <AntButton>
     Default
 </AntButton>
@@ -15,6 +13,19 @@
     Dashed
 </AntButton>
 
-@code {
 
-}
+<AntButton Type="@AntButtonType.Link">
+    Link
+</AntButton>
+
+
+
+<AntButton Type="@AntButtonType.Primary" Loading="true">
+    Loading
+</AntButton>
+
+
+
+<AntButton Type="@AntButtonType.Primary" Block="true">
+    Block
+</AntButton>

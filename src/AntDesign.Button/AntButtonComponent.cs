@@ -36,7 +36,13 @@ namespace AntDesign.Button
         }
         protected override Task OnParametersSetAsync()
         {
-            ClassNames.Add($"{prefixCls}-{Type}");
+            ClassNames.Add($"{prefixCls}-{Type}")
+                .If($"{prefixCls}-{Shape}", () => !string.IsNullOrEmpty(Shape))
+                 .If($"{prefixCls}-background-ghost", () => Ghost)
+                  .If($"{prefixCls}-block", () => Block)
+                  .If($"{prefixCls}-loading", () => Loading);
+
+
             return base.OnParametersSetAsync();
         }
 
@@ -55,6 +61,15 @@ namespace AntDesign.Button
                 _type = value;
             }
         }
+
+        [Parameter]
+        public string Shape { get; set; }
+        [Parameter]
+        public bool Ghost { get; set; }
+        [Parameter]
+        public bool Block { get; set; }
+        [Parameter]
+        public bool Loading { get; set; }
 
     }
 }
