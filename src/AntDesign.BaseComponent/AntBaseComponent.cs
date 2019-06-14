@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace AntDesign.BaseComponent
 {
-    public class AntBaseComponent : ComponentBase, IDisposable
+    public class AntBaseComponent : ComponentBase
     {
         protected string getPrefixCls(string suffixCls)
         {
@@ -59,48 +59,5 @@ namespace AntDesign.BaseComponent
         {
             ClassNames.Get(() => this.Class);
         }
-
-        private Queue<Func<Task>> afterRenderCallQuene = new Queue<Func<Task>>();
-
-        private bool isRendered = false;
-
-        protected void CallAfterRender(Func<Task> action)
-        {
-            afterRenderCallQuene.Enqueue(action);
-        }
-        protected async virtual Task OnFirstAfterRenderAsync()
-        {
-        }
-        protected async override Task OnAfterRenderAsync()
-        {
-            if (!isRendered)
-            {
-                await OnFirstAfterRenderAsync();
-                isRendered = true;
-            }
-
-            if (afterRenderCallQuene.Count > 0)
-            {
-                var actions = afterRenderCallQuene.ToArray();
-                afterRenderCallQuene.Clear();
-
-                foreach (var action in actions)
-                {
-                    if (Disposed)
-                    {
-                        return;
-                    }
-
-                    await action();
-                }
-            }
-        }
-
-        public virtual void Dispose()
-        {
-            Disposed = true;
-        }
-
-        protected bool Disposed { get; private set; }
     }
 }

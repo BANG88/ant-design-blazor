@@ -1,10 +1,4 @@
-﻿@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
-
-html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
-}
-
-app {
+﻿app {
     position: relative;
     display: flex;
     flex-direction: column;
@@ -47,6 +41,7 @@ app {
 .nav-item {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
+    list-style: none;
 }
 
     .nav-item:first-of-type {

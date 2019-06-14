@@ -9,8 +9,6 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Button", "src\Ant
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Web", "test\AntDesign.Web\AntDesign.Web.csproj", "{8742CA56-E396-4E11-8D4B-145CDB2FB871}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Theme", "src\AntDesign.Theme\AntDesign.Theme.csproj", "{6F1A864C-DF27-4802-ACD9-96C5CAF62C09}"
-EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.BaseComponent", "src\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj", "{9F5D7982-BF09-4F77-8019-72BA054FE15A}"
 EndProject
 Global
@@ -27,10 +25,6 @@ Global
 		{8742CA56-E396-4E11-8D4B-145CDB2FB871}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8742CA56-E396-4E11-8D4B-145CDB2FB871}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8742CA56-E396-4E11-8D4B-145CDB2FB871}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6F1A864C-DF27-4802-ACD9-96C5CAF62C09}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6F1A864C-DF27-4802-ACD9-96C5CAF62C09}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6F1A864C-DF27-4802-ACD9-96C5CAF62C09}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6F1A864C-DF27-4802-ACD9-96C5CAF62C09}.Release|Any CPU.Build.0 = Release|Any CPU
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
@@ -41,7 +35,6 @@ Global
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
 		{89B53511-B9B9-4272-AAC0-644125CF6842} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
-		{6F1A864C-DF27-4802-ACD9-96C5CAF62C09} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution

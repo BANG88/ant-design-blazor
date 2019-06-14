@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 namespace AntDesign.Button
 {
 
-    public static class ButtonTypes
+    public static class AntButtonType
     {
         public const string Default = "default";
         public const string Primary = "primary";
@@ -21,20 +21,25 @@ namespace AntDesign.Button
     {
         public AntButtonComponent()
         {
+            ClassNames.Add(prefixCls);
+        }
 
+        /// <summary>
+        /// Get prefixCls
+        /// </summary>
+        private string prefixCls
+        {
+            get
+            {
+                return getPrefixCls("btn");
+            }
         }
         protected override Task OnParametersSetAsync()
         {
-            var prefixCls = getPrefixCls("btn");
-
-            ClassNames.Add(prefixCls).
-                Add($"{prefixCls}-{Type}");
-
+            ClassNames.Add($"{prefixCls}-{Type}");
             return base.OnParametersSetAsync();
         }
-        /// <summary>
-        /// Inline label of Button.
-        /// </summary>
+
         [Parameter]
         protected RenderFragment ChildContent { get; set; }
 
@@ -44,11 +49,10 @@ namespace AntDesign.Button
         [Parameter]
         public string Type
         {
-            get { return _type ?? ButtonTypes.Default; }
+            get { return _type ?? AntButtonType.Default; }
             set
             {
                 _type = value;
-                ClassNames.MakeDirty();
             }
         }
 
