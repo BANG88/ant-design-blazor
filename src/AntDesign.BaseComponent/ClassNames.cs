@@ -1,7 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-
+/// <summary>
+/// html class helper copy from https://github.com/SamProf/MatBlazor/blob/master/src/MatBlazor/Helpers/ClassMapper.cs
+/// </summary>
 namespace AntDesign.BaseComponent
 {
     public class ClassNames
