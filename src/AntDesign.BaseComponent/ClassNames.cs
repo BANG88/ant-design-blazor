@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 
-namespace AntDesign
+namespace AntDesign.BaseComponent
 {
     public class ClassNames
     {

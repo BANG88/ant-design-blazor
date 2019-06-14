@@ -38,6 +38,10 @@
         top: -2px;
     }
 
+.nav {
+    margin: 0 auto;
+}
+
 .nav-item {
     font-size: 0.9rem;
     padding-bottom: 0.5rem;
