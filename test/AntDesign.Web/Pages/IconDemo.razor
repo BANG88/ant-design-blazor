@@ -1,0 +1,17 @@
+@page "/Icon"
+
+<h3>IconDemo</h3>
+<ul>
+    @foreach (var item in AntIcons.all)
+    {
+        <li>
+            <AntIcon Type="@item.Name" />
+            <span>@item.Name</span>
+        </li>
+    }
+</ul>
+@code{
+
+
+
+}

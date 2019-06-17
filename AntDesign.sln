@@ -11,6 +11,10 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Web", "test\AntDe
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.BaseComponent", "src\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj", "{9F5D7982-BF09-4F77-8019-72BA054FE15A}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Badge", "src\AntDesign.Badge\AntDesign.Badge.csproj", "{5CCBE780-2F24-40D8-B1A3-DF5EE33D021C}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Icon", "src\AntDesign.Icon\AntDesign.Icon.csproj", "{65F23CD5-BCDA-4581-896C-996087A61C58}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -29,6 +33,14 @@ Global
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5CCBE780-2F24-40D8-B1A3-DF5EE33D021C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5CCBE780-2F24-40D8-B1A3-DF5EE33D021C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5CCBE780-2F24-40D8-B1A3-DF5EE33D021C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5CCBE780-2F24-40D8-B1A3-DF5EE33D021C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{65F23CD5-BCDA-4581-896C-996087A61C58}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{65F23CD5-BCDA-4581-896C-996087A61C58}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{65F23CD5-BCDA-4581-896C-996087A61C58}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{65F23CD5-BCDA-4581-896C-996087A61C58}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -36,6 +48,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{89B53511-B9B9-4272-AAC0-644125CF6842} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 		{9F5D7982-BF09-4F77-8019-72BA054FE15A} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
+		{5CCBE780-2F24-40D8-B1A3-DF5EE33D021C} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
+		{65F23CD5-BCDA-4581-896C-996087A61C58} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B146E6E0-1C74-4F53-A874-D35B3DF09C6A}

@@ -1,0 +1,14 @@
+@inherits AntIconComponent
+
+<i class="anticon anticon-@(Type.Equals("loading") ? "spin" : Type)">
+
+    @if (Icon != null)
+    {
+        <svg viewBox="@Icon.ViewBox" focusable="false" width="@Width" height="@Height" fill="@Fill">
+            @foreach (var d in Icon.Paths)
+            {
+                <path d="@d"></path>
+            }
+        </svg>
+    }
+</i>

@@ -13,8 +13,10 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\src\AntDesign.Badge\AntDesign.Badge.csproj" />
     <ProjectReference Include="..\..\src\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj" />
     <ProjectReference Include="..\..\src\AntDesign.Button\AntDesign.Button.csproj" />
+    <ProjectReference Include="..\..\src\AntDesign.Icon\AntDesign.Icon.csproj" />
   </ItemGroup>
   <ItemGroup>
     <!-- extends watching group to include *.js files -->
