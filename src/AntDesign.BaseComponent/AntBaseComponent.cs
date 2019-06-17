@@ -8,7 +8,12 @@ namespace AntDesign.BaseComponent
 {
     public class AntBaseComponent : ComponentBase
     {
-        protected string getPrefixCls(string suffixCls)
+        /// <summary>
+        /// Prefix class
+        /// </summary>
+        /// <param name="suffixCls"></param>
+        /// <returns></returns>
+        protected static string getPrefixCls(string suffixCls)
         {
             string prefixCls = "ant";
 
@@ -57,7 +62,8 @@ namespace AntDesign.BaseComponent
 
         protected AntBaseComponent()
         {
-            ClassNames.Get(() => this.Class);
+            ClassNames.Add("");
         }
+
     }
 }

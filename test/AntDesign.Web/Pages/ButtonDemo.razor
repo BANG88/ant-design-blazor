@@ -14,11 +14,17 @@
 </AntButton>
 
 
+<AntButton Type="@AntButtonType.Danger">
+    Danger
+</AntButton>
+
 <AntButton Type="@AntButtonType.Link">
     Link
 </AntButton>
 
 
+
+<h3>Loading</h3>
 
 <AntButton Type="@AntButtonType.Primary" Loading="true">
     Loading
@@ -26,6 +32,57 @@
 
 
 
+<h3>Block</h3>
 <AntButton Type="@AntButtonType.Primary" Block="true">
     Block
 </AntButton>
+
+<h3>Group</h3>
+
+
+
+
+<h3>Size</h3>
+
+<AntButton Size="@AntButtonSize.Small" Type="@AntButtonType.Primary" OnClick="@(()=> OnClick(AntButtonSize.Small))">
+    Small
+</AntButton>
+
+<AntButton Type="@AntButtonType.Primary" OnClick="@(()=> OnClick(AntButtonSize.Default))">
+    Default
+</AntButton>
+<AntButton Size="@AntButtonSize.Large" Type="@AntButtonType.Primary" OnClick="@(()=> OnClick(AntButtonSize.Large))">
+    Large
+</AntButton>
+
+@code {
+    string size = AntButtonSize.Default;
+    void OnClick(string s)
+    {
+        size = s;
+    }
+}
+
+<div>
+    <p>@size</p>
+    <AntButton Size="@size">
+        Default
+    </AntButton>
+
+    <AntButton Size="@size" Type="@AntButtonType.Primary">
+        Primary
+    </AntButton>
+
+    <AntButton Size="@size" Type="@AntButtonType.Dashed">
+        Dashed
+    </AntButton>
+
+
+    <AntButton Size="@size" Type="@AntButtonType.Danger">
+        Danger
+    </AntButton>
+
+    <AntButton Size="@size" Type="@AntButtonType.Link">
+        Link
+    </AntButton>
+</div>

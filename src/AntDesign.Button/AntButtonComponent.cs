@@ -8,6 +8,9 @@ using System.Threading.Tasks;
 namespace AntDesign.Button
 {
 
+    /// <summary>
+    /// Button type
+    /// </summary>
     public static class AntButtonType
     {
         public const string Default = "default";
@@ -17,6 +20,35 @@ namespace AntDesign.Button
         public const string Danger = "danger";
         public const string Link = "link";
     }
+    /// <summary>
+    /// Button Shape
+    /// </summary>
+    public static class AntButtonShape
+    {
+        public const string Circle = "circle";
+        public const string CircleOutline = "circle-outline";
+        public const string Round = "round";
+    }
+
+    /// <summary>
+    /// Button size
+    /// </summary>
+    public static class AntButtonSize
+    {
+        public const string Large = "large";
+        public const string Default = "default";
+        public const string Small = "small";
+    }
+    /// <summary>
+    /// Button HTML type
+    /// </summary>
+    public static class AntButtonHTMLType
+    {
+        public const string Submit = "submit";
+        public const string Button = "button";
+        public const string Reset = "reset";
+    }
+
     public class AntButtonComponent : AntBaseComponent
     {
         public AntButtonComponent()
@@ -27,20 +59,17 @@ namespace AntDesign.Button
         /// <summary>
         /// Get prefixCls
         /// </summary>
-        private string prefixCls
-        {
-            get
-            {
-                return getPrefixCls("btn");
-            }
-        }
+        private string prefixCls = getPrefixCls("btn");
+
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Add($"{prefixCls}-{Type}")
                 .If($"{prefixCls}-{Shape}", () => !string.IsNullOrEmpty(Shape))
                  .If($"{prefixCls}-background-ghost", () => Ghost)
                   .If($"{prefixCls}-block", () => Block)
-                  .If($"{prefixCls}-loading", () => Loading);
+                  .If($"{prefixCls}-loading", () => Loading)
+                  .If($"{prefixCls}-lg", () => Size.Equals(AntButtonSize.Large))
+                  .If($"{prefixCls}-sm", () => Size.Equals(AntButtonSize.Small));
 
 
             return base.OnParametersSetAsync();
@@ -62,14 +91,95 @@ namespace AntDesign.Button
             }
         }
 
+
+        private string _shape;
+
         [Parameter]
-        public string Shape { get; set; }
+        public string Shape
+        {
+            get { return _shape; }
+            set
+            {
+                _shape = value;
+            }
+        }
+
+        private string _size;
+
+        [Parameter]
+        public string Size
+        {
+            get { return _size ?? AntButtonSize.Default; }
+            set
+            {
+                _size = value;
+            }
+        }
+
+        private string _htmlType;
+        [Parameter]
+        public string HtmlType
+        {
+            get { return _htmlType ?? AntButtonHTMLType.Button; }
+            set { _htmlType = value; }
+        }
+        /// <summary>
+        /// Render a link if Href provided
+        /// </summary>
+        [Parameter]
+        public string Href { get; set; }
+
         [Parameter]
         public bool Ghost { get; set; }
         [Parameter]
         public bool Block { get; set; }
         [Parameter]
         public bool Loading { get; set; }
+
+        [Parameter]
+        public bool Disabled { get; set; }
+
+        /// <summary>
+        /// Size cls
+        /// </summary>
+        protected string SizeCls
+        {
+            get
+            {
+                var sizeCls = "";
+                switch (this.Size)
+                {
+                    case AntButtonSize.Large:
+                        sizeCls = "lg";
+                        break;
+                    case AntButtonSize.Small:
+                        sizeCls = "sm";
+                        break;
+                    default:
+                        break;
+                }
+                return sizeCls;
+            }
+        }
+
+        [Parameter]
+        protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
+        protected void OnClickHandler(UIMouseEventArgs ev)
+        {
+            if (this.Loading)
+            {
+                return;
+            }
+
+            if (Href != null)
+            {
+
+            }
+            else
+            {
+                OnClick.InvokeAsync(ev);
+            }
+        }
 
     }
 }

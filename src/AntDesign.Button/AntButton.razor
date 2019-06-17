@@ -1,14 +1,14 @@
 @inherits AntButtonComponent
 @using AntDesign.Icon
 
-<button class="@ClassNames.Class" style="@Style">
+<button class="@ClassNames.Class" style="@Style" @onclick="@OnClickHandler" disabled=@Disabled>
     @{
         if (Loading)
         {
             <AntIcon Type="loading"></AntIcon>
         }
     }
-    @ChildContent
+    <span>@ChildContent</span>
 </button>
 
 @code {

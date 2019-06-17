@@ -15,17 +15,17 @@ namespace AntDesign.BaseComponent
         {
             get
             {
-                if (_dirty)
-                {
-                    _class = string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key()));
-                }
+                //if (_dirty)
+                //{
+                //    _class = string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key));
+                //}
 
-                return _class;
+                return string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key));
             }
         }
 
 
-        private Dictionary<Func<string>, Func<bool>> map = new Dictionary<Func<string>, Func<bool>>();
+        private Dictionary<string, Func<bool>> map = new Dictionary<string, Func<bool>>();
 
 
         public void MakeDirty()
@@ -35,26 +35,32 @@ namespace AntDesign.BaseComponent
 
         public ClassNames Add(string name)
         {
-            map.Add(() => name, () => true);
+            if (!map.ContainsKey(name))
+            {
+                map.Add(name, () => true);
+            }
             return this;
         }
 
 
         public ClassNames Get(Func<string> funcName)
         {
-            map.Add(funcName, () => true);
+            map.Add(funcName(), () => true);
             return this;
         }
 
         public ClassNames GetIf(Func<string> funcName, Func<bool> func)
         {
-            map.Add(funcName, func);
+            map.Add(funcName(), func);
             return this;
         }
 
         public ClassNames If(string name, Func<bool> func)
         {
-            map.Add(() => name, func);
+            if (!map.ContainsKey(name))
+            {
+                map.Add(name, func);
+            }
             return this;
         }
     }
