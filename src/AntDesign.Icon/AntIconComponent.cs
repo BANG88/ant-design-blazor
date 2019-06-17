@@ -24,16 +24,17 @@ namespace AntDesign.Icon
         [Parameter]
         public string Fill { get; set; } = "currentColor";
 
+        [Parameter]
+        public string Theme { get; set; } = "outline";
+
         public AntIconDefinition Icon { get; set; }
-       
 
         protected override Task OnParametersSetAsync()
         {
-            var icon = AntIcons.all.Find(a => a.Name.Equals(this.Type));
+            var icon = AntIcons.all.Find(a => a.Name.Equals(this.Type) && a.Theme.Equals(this.Theme));
             if (icon != null)
             {
                 this.Icon = icon;
-                //this.StateHasChanged();
             }
             return base.OnParametersSetAsync();
         }

@@ -1,17 +1,74 @@
 @page "/Icon"
+<style>
 
-<h3>IconDemo</h3>
-<ul>
-    @foreach (var item in AntIcons.all)
-    {
-        <li>
-            <AntIcon Type="@item.Name" />
-            <span>@item.Name</span>
-        </li>
+    .icons {
+        margin: 10px 0;
+        overflow: hidden;
+        list-style: none;
     }
-</ul>
+
+        .icons li {
+            position: relative;
+            float: left;
+            width: 16.66%;
+            height: 100px;
+            margin: 3px 0;
+            padding: 10px 0 0;
+            overflow: hidden;
+            color: #555;
+            text-align: center;
+            list-style: none;
+            background-color: #fff;
+            border-radius: 4px;
+            cursor: pointer;
+            -webkit-transition: color .3s ease-in-out,background-color .3s ease-in-out;
+            transition: color .3s ease-in-out,background-color .3s ease-in-out;
+        }
+
+            .icons li .anticon {
+                margin: 12px 0 8px;
+                font-size: 36px;
+            }
+</style>
+
+@foreach (var icon in icons)
+{
+
+    <h3>@(icon.title)</h3>
+    <ul class="icons">
+        @foreach (var item in icon.items)
+        {
+            <li>
+                <AntIcon Type="@item.Name" Theme="@item.Theme" />
+                <p>@item.Name</p>
+            </li>
+        }
+    </ul>
+}
+
+
+
 @code{
 
-
-
+    class Demo
+    {
+        public string title { get; set; }
+        public IEnumerable<AntIconDefinition>
+    items
+        { get; set; }
+    }
+    List<Demo>
+        icons = new List<Demo>
+            {
+            new Demo
+            {
+            title = "Fill",
+            items = AntIcons.all.Where(x => x.Theme.Equals("fill")),
+            },
+            new Demo
+            {
+            title = "Outline",
+            items = AntIcons.all.Where(x => x.Theme.Equals("outline")),
+            },
+                        };
 }

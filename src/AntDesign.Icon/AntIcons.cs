@@ -8,7 +8,7 @@ namespace AntDesign.Icon
     public class AntIcons
     {
         /// <summary>
-        /// All icons expect twotone
+        /// All icons except twotone
         /// </summary>
         public static List<AntIconDefinition> all = new List<AntIconDefinition> {
 
