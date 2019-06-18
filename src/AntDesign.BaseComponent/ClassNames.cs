@@ -12,6 +12,10 @@ namespace AntDesign.BaseComponent
 
         private Dictionary<string, Func<bool>> map = new Dictionary<string, Func<bool>>();
 
+        /// <summary>
+        /// Clear all classnames before add new one.
+        /// </summary>
+        /// <returns></returns>
         public ClassNames Clear()
         {
             map.Clear();
