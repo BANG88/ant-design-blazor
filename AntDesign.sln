@@ -17,6 +17,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Divider", "src\An
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Typography", "src\AntDesign.Typography\AntDesign.Typography.csproj", "{0A45B38C-7548-437F-B7D5-210573D0D616}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Grid", "src\AntDesign.Grid\AntDesign.Grid.csproj", "{EDC2FEDE-C988-45EB-9E4E-DF34D472CD36}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -47,6 +49,10 @@ Global
 		{0A45B38C-7548-437F-B7D5-210573D0D616}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0A45B38C-7548-437F-B7D5-210573D0D616}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0A45B38C-7548-437F-B7D5-210573D0D616}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EDC2FEDE-C988-45EB-9E4E-DF34D472CD36}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EDC2FEDE-C988-45EB-9E4E-DF34D472CD36}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EDC2FEDE-C988-45EB-9E4E-DF34D472CD36}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EDC2FEDE-C988-45EB-9E4E-DF34D472CD36}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -57,6 +63,7 @@ Global
 		{65F23CD5-BCDA-4581-896C-996087A61C58} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 		{FF6CB133-CD48-4A4B-87C6-772344841913} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 		{0A45B38C-7548-437F-B7D5-210573D0D616} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
+		{EDC2FEDE-C988-45EB-9E4E-DF34D472CD36} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B146E6E0-1C74-4F53-A874-D35B3DF09C6A}

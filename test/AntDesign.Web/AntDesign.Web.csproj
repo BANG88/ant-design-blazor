@@ -16,6 +16,7 @@
     <ProjectReference Include="..\..\src\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj" />
     <ProjectReference Include="..\..\src\AntDesign.Button\AntDesign.Button.csproj" />
     <ProjectReference Include="..\..\src\AntDesign.Divider\AntDesign.Divider.csproj" />
+    <ProjectReference Include="..\..\src\AntDesign.Grid\AntDesign.Grid.csproj" />
     <ProjectReference Include="..\..\src\AntDesign.Icon\AntDesign.Icon.csproj" />
     <ProjectReference Include="..\..\src\AntDesign.Typography\AntDesign.Typography.csproj" />
   </ItemGroup>
