@@ -2,37 +2,26 @@
 using System.Collections.Generic;
 using System.Linq;
 /// <summary>
-/// html class helper copy from https://github.com/SamProf/MatBlazor/blob/master/src/MatBlazor/Helpers/ClassMapper.cs
+/// html class helper
 /// </summary>
 namespace AntDesign.BaseComponent
 {
     public class ClassNames
     {
-        private string _class;
-        private bool _dirty = true;
-
-        public string Class
-        {
-            get
-            {
-                //if (_dirty)
-                //{
-                //    _class = string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key));
-                //}
-
-                return string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key));
-            }
-        }
-
+        public string Class => string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key));
 
         private Dictionary<string, Func<bool>> map = new Dictionary<string, Func<bool>>();
 
-
-        public void MakeDirty()
+        public ClassNames Clear()
         {
-            _dirty = true;
+            map.Clear();
+            return this;
         }
-
+        /// <summary>
+        /// Add classname
+        /// </summary>
+        /// <param name="name"></param>
+        /// <returns></returns>
         public ClassNames Add(string name)
         {
             if (!map.ContainsKey(name))
@@ -41,21 +30,13 @@ namespace AntDesign.BaseComponent
             }
             return this;
         }
-
-
-        public ClassNames Get(Func<string> funcName)
-        {
-            map.Add(funcName(), () => true);
-            return this;
-        }
-
-        public ClassNames GetIf(Func<string> funcName, Func<bool> func)
-        {
-            map.Add(funcName(), func);
-            return this;
-        }
-
-        public ClassNames If(string name, Func<bool> func)
+        /// <summary>
+        /// Add classname if func is true.
+        /// </summary>
+        /// <param name="name"></param>
+        /// <param name="func"></param>
+        /// <returns></returns>
+        public ClassNames Add(string name, Func<bool> func)
         {
             if (!map.ContainsKey(name))
             {

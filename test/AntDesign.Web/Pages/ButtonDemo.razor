@@ -44,14 +44,14 @@
 
 <h3>Size</h3>
 
-<AntButton Size="@AntButtonSize.Small" Type="@AntButtonType.Primary" OnClick="@(()=> OnClick(AntButtonSize.Small))">
+<AntButton Size="@AntButtonSize.Small" Type="@(size.Equals(AntButtonSize.Small) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Small))">
     Small
 </AntButton>
 
-<AntButton Type="@AntButtonType.Primary" OnClick="@(()=> OnClick(AntButtonSize.Default))">
+<AntButton Type="@(size.Equals(AntButtonSize.Default) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Default))">
     Default
 </AntButton>
-<AntButton Size="@AntButtonSize.Large" Type="@AntButtonType.Primary" OnClick="@(()=> OnClick(AntButtonSize.Large))">
+<AntButton Size="@AntButtonSize.Large" Type="@(size.Equals(AntButtonSize.Large) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Large))">
     Large
 </AntButton>
 

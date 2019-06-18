@@ -51,10 +51,6 @@ namespace AntDesign.Button
 
     public class AntButtonComponent : AntBaseComponent
     {
-        public AntButtonComponent()
-        {
-            ClassNames.Add(prefixCls);
-        }
 
         /// <summary>
         /// Get prefixCls
@@ -63,13 +59,14 @@ namespace AntDesign.Button
 
         protected override Task OnParametersSetAsync()
         {
-            ClassNames.Add($"{prefixCls}-{Type}")
-                .If($"{prefixCls}-{Shape}", () => !string.IsNullOrEmpty(Shape))
-                 .If($"{prefixCls}-background-ghost", () => Ghost)
-                  .If($"{prefixCls}-block", () => Block)
-                  .If($"{prefixCls}-loading", () => Loading)
-                  .If($"{prefixCls}-lg", () => Size.Equals(AntButtonSize.Large))
-                  .If($"{prefixCls}-sm", () => Size.Equals(AntButtonSize.Small));
+            ClassNames.Clear()
+                .Add(prefixCls)
+                .Add($"{prefixCls}-{Type}")
+                .Add($"{prefixCls}-{Shape}", () => !string.IsNullOrEmpty(Shape))
+                 .Add($"{prefixCls}-background-ghost", () => Ghost)
+                  .Add($"{prefixCls}-block", () => Block)
+                  .Add($"{prefixCls}-loading", () => Loading)
+                  .Add($"{prefixCls}-{SizeCls}", () => !string.IsNullOrEmpty(Size));
 
 
             return base.OnParametersSetAsync();

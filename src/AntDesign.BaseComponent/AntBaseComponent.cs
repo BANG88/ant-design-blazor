@@ -19,29 +19,21 @@ namespace AntDesign.BaseComponent
 
             return string.IsNullOrEmpty(suffixCls) ? prefixCls : $"{prefixCls}-{suffixCls}";
         }
-        private ElementRef _ref;
 
-        public ElementRef Ref
-        {
-            get { return _ref; }
-            set { _ref = value; }
-        }
+        protected ClassNames ClassNames { get; } = new ClassNames();
 
-        public ClassNames ClassNames { get; } = new ClassNames();
+        private string _class;
+
         /// <summary>
         /// Specifies one or more classnames for an DOM element.
         /// </summary>
         [Parameter]
         public string Class
         {
-            get => _class;
-            set
-            {
-                _class = value;
-                ClassNames.MakeDirty();
-            }
+            /// Combine customize classnames
+            get { return $"{ClassNames.Class} {_class}".Trim(); }
+            set { _class = value; }
         }
-
 
         /// <summary>
         /// Specifies an inline style for an DOM element.
@@ -57,13 +49,7 @@ namespace AntDesign.BaseComponent
             }
         }
 
-        private string _class;
         private string _style;
-
-        protected AntBaseComponent()
-        {
-            ClassNames.Add("");
-        }
 
     }
 }
