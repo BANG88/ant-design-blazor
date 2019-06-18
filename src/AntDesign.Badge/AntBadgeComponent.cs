@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using AntDesign..BaseComponent;
+using AntDesign.BaseComponent;
 
-namespace 
+namespace AntDesign.Badge
 {
     public class AntBadgeComponent : AntBaseComponent
     {
