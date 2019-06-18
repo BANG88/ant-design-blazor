@@ -1,5 +1,9 @@
-<h3>AntDivider</h3>
-
-@code {
-
-}
+@inherits AntDividerComponent
+<div class="@Class" style="@Style">
+    @{
+        if (ChildContent != null)
+        {
+            <span class="@($"{prefixCls}-inner-text")">@ChildContent</span>
+        }
+    }
+</div>
