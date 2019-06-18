@@ -7,6 +7,12 @@ using System.Threading.Tasks;
 
 namespace AntDesign.Icon
 {
+
+    public static class AntIconTheme
+    {
+        public const string Fill = "fill";
+        public const string Outline = "outline";
+    }
     public class AntIconComponent : AntBaseComponent
     {
         [Parameter]
@@ -25,7 +31,7 @@ namespace AntDesign.Icon
         public string Fill { get; set; } = "currentColor";
 
         [Parameter]
-        public string Theme { get; set; } = "outline";
+        public string Theme { get; set; } = AntIconTheme.Outline;
 
         public AntIconDefinition Icon { get; set; }
 
