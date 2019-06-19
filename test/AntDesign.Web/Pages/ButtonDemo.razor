@@ -1,28 +1,26 @@
 @page "/button"
 
-<h3>ButtonDemo</h3>
-<AntButton>
-    Default
-</AntButton>
+<DemoContainer Component="button" Title="ButtonDemo">
+    <Content>
+        <AntButton>
+            Default
+        </AntButton>
+        <AntButton Type="@AntButtonType.Primary">
+            Primary
+        </AntButton>
+        <AntButton Type="@AntButtonType.Dashed">
+            Dashed
+        </AntButton>
+        <AntButton Type="@AntButtonType.Danger">
+            Danger
+        </AntButton>
+        <AntButton Type="@AntButtonType.Link">
+            Link
+        </AntButton>
+    </Content>
+</DemoContainer>
 
-<AntButton Type="@AntButtonType.Primary">
-    Primary
-</AntButton>
 
-<AntButton Type="@AntButtonType.Dashed">
-    Dashed
-</AntButton>
-
-
-<AntButton Type="@AntButtonType.Danger">
-    Danger
-</AntButton>
-
-<AntButton Type="@AntButtonType.Link">
-    Link
-</AntButton>
-
-<AntDivider />
 
 <h3>Loading</h3>
 

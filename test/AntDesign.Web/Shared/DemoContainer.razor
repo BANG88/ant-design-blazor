@@ -1,0 +1,22 @@
+<div class="@Component-demo" id="components-@Component-demo-">
+    <h3 class="@Component-demo-title">@Title</h3>
+    <div class="@Component-demo-content">
+        @Content
+    </div>
+</div>
+
+<AntDivider />
+
+
+@code {
+
+    [Parameter]
+    protected string Component { get; set; }
+    [Parameter]
+    protected string Title { get; set; }
+    [Parameter]
+    protected RenderFragment Content { get; set; }
+    [Parameter]
+    protected RenderFragment Code { get; set; }
+
+}
