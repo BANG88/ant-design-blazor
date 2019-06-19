@@ -6,6 +6,19 @@
     <LangVersion>7.3</LangVersion>
     <RazorLangVersion>3.0</RazorLangVersion>
     <AddRazorSupportForMvc>true</AddRazorSupportForMvc>
+    <Description>Ant Design components for Blazor</Description>
+    <PackageProjectUrl>https://bang88.github.io/ant-design-blazor/</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/bang88/ant-design-blazor</RepositoryUrl>
+    <PackageTags>ant design bloazr components</PackageTags>
+    <PackageRequireLicenseAcceptance>false</PackageRequireLicenseAcceptance>
+    <RepositoryType>git</RepositoryType>
+    <PackageLicenseUrl></PackageLicenseUrl>
+    <Copyright>启邦</Copyright>
+    <PackageReleaseNotes></PackageReleaseNotes>
+    <PackageLicenseExpression>MIT</PackageLicenseExpression>
+    <Authors>启邦</Authors>
+    <PackageIconUrl>https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg</PackageIconUrl>
+    <PackageVersion>$(VersionSuffix)</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>

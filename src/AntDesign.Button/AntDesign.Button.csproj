@@ -7,7 +7,7 @@
 		<RazorLangVersion>3.0</RazorLangVersion>
 		<AddRazorSupportForMvc>true</AddRazorSupportForMvc>
 
-		<Description>Ant Design Button components for Blazor</Description>
+		<Description>Ant Design components for Blazor</Description>
     <PackageProjectUrl>https://bang88.github.io/ant-design-blazor/</PackageProjectUrl>
     <RepositoryUrl>https://github.com/bang88/ant-design-blazor</RepositoryUrl>
     <PackageTags>ant design bloazr components</PackageTags>
