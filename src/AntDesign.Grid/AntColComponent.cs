@@ -3,11 +3,10 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using AntDesign.BaseComponent;
 using Microsoft.AspNetCore.Components;
 using OneOf;
 
-namespace AntDesign.Grid
+namespace AntDesign
 {
     using AntColSpanType = OneOf<string, int>;
 

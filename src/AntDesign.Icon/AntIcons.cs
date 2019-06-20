@@ -3,7 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace AntDesign.Icon
+namespace AntDesign
 {
     public class AntIcons
     {

@@ -4,7 +4,7 @@ using System.Text;
 using Microsoft.AspNetCore.Components;
 
 
-namespace AntDesign.Icon
+namespace AntDesign
 {
     public class AntIconDefinition
 

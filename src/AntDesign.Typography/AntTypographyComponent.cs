@@ -2,10 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using AntDesign.BaseComponent;
 using Microsoft.AspNetCore.Components;
 
-namespace AntDesign.Typography
+namespace AntDesign
 {
     /// <summary>
     /// Base Component for AntTypography

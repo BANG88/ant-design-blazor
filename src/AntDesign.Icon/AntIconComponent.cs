@@ -1,11 +1,10 @@
-﻿using AntDesign.BaseComponent;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Text;
 using Microsoft.AspNetCore.Components;
 using System.Threading.Tasks;
 
-namespace AntDesign.Icon
+namespace AntDesign
 {
 
     public static class AntIconTheme

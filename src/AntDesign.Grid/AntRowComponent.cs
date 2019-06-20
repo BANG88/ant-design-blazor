@@ -2,11 +2,10 @@
 using System.Collections.Generic;
 using System.Text;
 using System.Threading.Tasks;
-using AntDesign.BaseComponent;
 using Microsoft.AspNetCore.Components;
 using OneOf;
 
-namespace AntDesign.Grid
+namespace AntDesign
 {
 
     public static class AntRowAligns

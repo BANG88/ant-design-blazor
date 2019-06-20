@@ -2,10 +2,9 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-using AntDesign.BaseComponent;
 using System.Threading.Tasks;
 
-namespace AntDesign.Button
+namespace AntDesign
 {
 
     /// <summary>

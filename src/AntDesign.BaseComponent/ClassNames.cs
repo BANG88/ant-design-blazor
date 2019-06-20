@@ -4,7 +4,7 @@ using System.Linq;
 /// <summary>
 /// html class helper
 /// </summary>
-namespace AntDesign.BaseComponent
+namespace AntDesign
 {
     public class ClassNames
     {
