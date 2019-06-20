@@ -274,3 +274,5 @@ __pycache__/
 
 # End of https://www.gitignore.io/api/aspnetcore
 clean.sh
+
+test/website/dist/
