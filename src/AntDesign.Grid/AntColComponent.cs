@@ -123,7 +123,7 @@ namespace AntDesign.Grid
         [Parameter]
         public OneOf<AntColSpanType, AntColSize> xxl { get; set; }
 
-        [CascadingParameter]
+        [CascadingParameter(Name = "gutter")]
         public int gutter { get; set; }
 
         [Parameter]

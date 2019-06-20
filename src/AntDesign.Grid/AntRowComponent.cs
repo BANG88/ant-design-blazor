@@ -36,9 +36,9 @@ namespace AntDesign.Grid
         {
             ClassNames.Clear()
                .Add(prefixCls)
-               .Add($"{prefixCls}-{Type}", () => hasType)
-               .Add($"{prefixCls}-{Type}-{Justify}", () => hasType && !string.IsNullOrEmpty(Justify))
-               .Add($"{prefixCls}-{Type}-{Align}", () => hasType && !string.IsNullOrEmpty(Align))
+               .Add($"{prefixCls}-{type}", () => hasType)
+               .Add($"{prefixCls}-{type}-{justify}", () => hasType && !string.IsNullOrEmpty(justify))
+               .Add($"{prefixCls}-{type}-{align}", () => hasType && !string.IsNullOrEmpty(align))
                ;
 
             return base.OnParametersSetAsync();
@@ -47,19 +47,33 @@ namespace AntDesign.Grid
         /// <summary>
         /// check type 
         /// </summary>
-        private bool hasType => !string.IsNullOrEmpty(Type);
+        private bool hasType => !string.IsNullOrEmpty(type);
 
         [Parameter]
-        public string Type { get; set; } = "flex";
+        public string type { get; set; } = "flex";
 
         [Parameter]
-        public string Align { get; set; }
+        public string align { get; set; }
 
         [Parameter]
-        public string Justify { get; set; }
+        public string justify { get; set; }
 
         [Parameter]
-        public int Gutter { get; set; }
+        public int gutter { get; set; }
+
+        /// <summary>
+        /// TODO: breakpoint
+        /// </summary>
+        /// <returns></returns>
+        protected string getStyle()
+        {
+            var style = "";
+            if (this.gutter > 0)
+            {
+                style = $"margin-left: -{this.gutter / 2}px;margin-right: {this.gutter / 2}px;";
+            }
+            return $"{style} {this.Style}".Trim();
+        }
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 

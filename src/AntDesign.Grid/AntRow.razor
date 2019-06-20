@@ -1,8 +1,8 @@
 @inherits AntRowComponent
 
 
-<CascadingValue Value="@Gutter" Name="Gutter">
-    <div class="@Class">
+<CascadingValue Value="@gutter" Name="gutter">
+    <div class="@Class" style="@getStyle()">
         @ChildContent
     </div>
 </CascadingValue>
