@@ -36,7 +36,10 @@ namespace AntDesign
 
         protected override Task OnParametersSetAsync()
         {
-            var icon = AntIcons.all.Find(a => a.Name.Equals(this.Type) && a.Theme.Equals(this.Theme));
+            AntIconDefinition icon;
+
+            AntIcons.icons.TryGetValue($"{this.Type}-{this.Theme}".ToLower(), out icon);
+
             if (icon != null)
             {
                 this.Icon = icon;
