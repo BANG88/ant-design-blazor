@@ -1,15 +1,19 @@
 @inherits LayoutComponentBase
 
-<div class="sidebar">
-    <NavMenu />
-</div>
+
 <AntLayout>
     <AntHeader>
         <div class="top-row px-4">
             <a href="https://ant.design/" target="_blank" class="ml-md-auto">Ant Design</a>
         </div>
     </AntHeader>
-    <AntContent>
-        @Body
-    </AntContent>
+    <AntLayout>
+        <AntSider>
+            <NavMenu />
+        </AntSider>
+        <AntContent>
+            @Body
+        </AntContent>
+    </AntLayout>
+    <AntFooter>Footer</AntFooter>
 </AntLayout>
