@@ -16,7 +16,6 @@ namespace AntDesign
         {
             ClassNames.Clear()
                .Add(prefixCls)
-               .Add($"{prefixCls}-has-sider", () => this.hasSider)
                ;
 
             return base.OnParametersSetAsync();
@@ -25,7 +24,5 @@ namespace AntDesign
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        [Parameter]
-        public bool hasSider { get; set; }
     }
 }

@@ -15,12 +15,15 @@ namespace AntDesign
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()
-               .Add(prefixCls);
-
+               .Add(prefixCls)
+                           .Add($"{prefixCls}-has-sider", () => this.hasSider);
             return base.OnParametersSetAsync();
         }
 
         [Parameter]
         public RenderFragment ChildContent { get; set; }
+
+        [Parameter]
+        public bool hasSider { get; set; }
     }
 }
