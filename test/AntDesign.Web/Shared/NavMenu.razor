@@ -1,20 +1,18 @@
-﻿<div class="@NavMenuCssClass" @onclick="@ToggleNavMenu">
-    <ul class="nav flex-column">
-        <li class="nav-item px-3">
-            <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
-                <span class="oi oi-home" aria-hidden="true"></span> Home
-            </NavLink>
-        </li>
-        @foreach (var item in navs)
-        {
-            <li class="nav-item px-3">
-                <NavLink class="nav-link" href="@item">
-                    <span class="oi oi-plus" aria-hidden="true"></span> @item
-                </NavLink>
-            </li>
-        }
-    </ul>
-</div>
+﻿<ul class="nav flex-column">
+    <li class="nav-item px-3">
+        <NavLink class="nav-link" href="" Match="NavLinkMatch.All">
+            <span class="oi oi-home" aria-hidden="true"></span> Home
+        </NavLink>
+    </li>
+    @foreach (var item in navs)
+    {
+    <li class="nav-item px-3">
+        <NavLink class="nav-link" href="@item">
+            <span class="oi oi-plus" aria-hidden="true"></span> @item
+        </NavLink>
+    </li>
+    }
+</ul>
 
 @code {
     List<string> navs = new List<string> {
