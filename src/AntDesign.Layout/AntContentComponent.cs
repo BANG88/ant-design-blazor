@@ -7,11 +7,11 @@ using Microsoft.AspNetCore.Components;
 namespace AntDesign
 {
     /// <summary>
-    /// Base Component for AntLayout
+    /// Base Component for AntContent
     /// </summary>
-    public class AntLayoutComponent : AntBaseComponent
+    public class AntContentComponent : AntBaseComponent
     {
-        private string prefixCls = getPrefixCls("layout");
+        private string prefixCls = getPrefixCls("layout-content");
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()

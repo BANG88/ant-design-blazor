@@ -9,9 +9,9 @@ namespace AntDesign
     /// <summary>
     /// Base Component for AntLayout
     /// </summary>
-    public class AntLayoutComponent : AntBaseComponent
+    public class AntFooterComponent : AntBaseComponent
     {
-        private string prefixCls = getPrefixCls("layout");
+        private string prefixCls = getPrefixCls("layout-footer");
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()
