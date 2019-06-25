@@ -3,7 +3,7 @@
 
 @if (string.IsNullOrEmpty(href))
 {
-    <button type="@htmlType" class="@Class" style="@Style" @onclick="@OnClickHandler" disabled=@disabled>
+    <button type="@htmlType" class="@Class" style="@Style" @onclick="@OnClickHandler" disabled=@(disabled)>
         @{
             if (!string.IsNullOrEmpty(icon))
             {

@@ -175,19 +175,11 @@ namespace AntDesign
         protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
         protected void OnClickHandler(UIMouseEventArgs ev)
         {
-            if (this.loading)
+            if (loading || disabled)
             {
                 return;
             }
-
-            if (href != null)
-            {
-
-            }
-            else
-            {
-                OnClick.InvokeAsync(ev);
-            }
+            OnClick.InvokeAsync(ev);
         }
 
     }
