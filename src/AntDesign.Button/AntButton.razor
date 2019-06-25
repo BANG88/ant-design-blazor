@@ -1,16 +1,36 @@
 @namespace AntDesign
 @inherits AntButtonComponent
 
-<button class="@Class" style="@Style" @onclick="@OnClickHandler" disabled=@Disabled>
-    @{
-        if (Loading)
-        {
-            <AntIcon Type="loading"></AntIcon>
+@if (string.IsNullOrEmpty(href))
+{
+    <button type="@htmlType" class="@Class" style="@Style" @onclick="@OnClickHandler" disabled=@disabled>
+        @{
+            if (!string.IsNullOrEmpty(icon))
+            {
+                <AntIcon Type="@icon"></AntIcon>
+            }
         }
-    }
-    <span>@ChildContent</span>
-</button>
+        @if (ChildContent != null)
+        {
+            <span>@ChildContent</span>
+        }
+    </button>
 
-@code {
+}
+else
+{
+
+    <a class="@Class" href="@href" style="@Style" @onclick="@OnClickHandler" disabled=@disabled>
+        @{
+            if (!string.IsNullOrEmpty(icon))
+            {
+                <AntIcon Type="@icon"></AntIcon>
+            }
+        }
+        @if (ChildContent != null)
+        {
+            <span>@ChildContent</span>
+        }
+    </a>
 
 }

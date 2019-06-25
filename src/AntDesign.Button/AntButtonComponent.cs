@@ -60,12 +60,13 @@ namespace AntDesign
         {
             ClassNames.Clear()
                 .Add(prefixCls)
-                .Add($"{prefixCls}-{Type}")
-                .Add($"{prefixCls}-{Shape}", () => !string.IsNullOrEmpty(Shape))
-                 .Add($"{prefixCls}-background-ghost", () => Ghost)
-                  .Add($"{prefixCls}-block", () => Block)
-                  .Add($"{prefixCls}-loading", () => Loading)
-                  .Add($"{prefixCls}-{SizeCls}", () => !string.IsNullOrEmpty(Size));
+                .Add($"{prefixCls}-{type}")
+                .Add($"{prefixCls}-{shape}", () => !string.IsNullOrEmpty(shape))
+                 .Add($"{prefixCls}-background-ghost", () => ghost)
+                  .Add($"{prefixCls}-block", () => block)
+                  .Add($"{prefixCls}-loading", () => loading)
+                  .Add($"{prefixCls}-icon-only", () => ChildContent == null && !string.IsNullOrEmpty(icon))
+                  .Add($"{prefixCls}-{SizeCls}", () => !string.IsNullOrEmpty(SizeCls));
 
 
             return base.OnParametersSetAsync();
@@ -75,10 +76,22 @@ namespace AntDesign
         protected RenderFragment ChildContent { get; set; }
 
 
+        private string _icon;
+        [Parameter]
+        public string icon
+        {
+            get
+            {
+                return loading ? "loading" : _icon;
+            }
+
+            set { _icon = value; }
+        }
+
         private string _type;
 
         [Parameter]
-        public string Type
+        public string type
         {
             get { return _type ?? AntButtonType.Default; }
             set
@@ -91,7 +104,7 @@ namespace AntDesign
         private string _shape;
 
         [Parameter]
-        public string Shape
+        public string shape
         {
             get { return _shape; }
             set
@@ -103,7 +116,7 @@ namespace AntDesign
         private string _size;
 
         [Parameter]
-        public string Size
+        public string size
         {
             get { return _size ?? AntButtonSize.Default; }
             set
@@ -114,26 +127,26 @@ namespace AntDesign
 
         private string _htmlType;
         [Parameter]
-        public string HtmlType
+        public string htmlType
         {
             get { return _htmlType ?? AntButtonHTMLType.Button; }
             set { _htmlType = value; }
         }
         /// <summary>
-        /// Render a link if Href provided
+        /// Render a link if href provided
         /// </summary>
         [Parameter]
-        public string Href { get; set; }
+        public string href { get; set; }
 
         [Parameter]
-        public bool Ghost { get; set; }
+        public bool ghost { get; set; }
         [Parameter]
-        public bool Block { get; set; }
+        public bool block { get; set; }
         [Parameter]
-        public bool Loading { get; set; }
+        public bool loading { get; set; }
 
         [Parameter]
-        public bool Disabled { get; set; }
+        public bool disabled { get; set; }
 
         /// <summary>
         /// Size cls
@@ -143,7 +156,7 @@ namespace AntDesign
             get
             {
                 var sizeCls = "";
-                switch (this.Size)
+                switch (size)
                 {
                     case AntButtonSize.Large:
                         sizeCls = "lg";
@@ -162,12 +175,12 @@ namespace AntDesign
         protected EventCallback<UIMouseEventArgs> OnClick { get; set; }
         protected void OnClickHandler(UIMouseEventArgs ev)
         {
-            if (this.Loading)
+            if (this.loading)
             {
                 return;
             }
 
-            if (Href != null)
+            if (href != null)
             {
 
             }
