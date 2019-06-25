@@ -58,70 +58,120 @@
     </Content>
 </DemoContainer>
 
-
-<h3>Loading</h3>
-
-<AntButton Type="@AntButtonType.Primary" Loading="true">
-    Loading
-</AntButton>
-
-
-<AntDivider />
-
-<h3>Block</h3>
-<AntButton Type="@AntButtonType.Primary" Block="true">
-    Block
-</AntButton>
-
-
-<AntDivider />
-
-<h3>Group</h3>
-
-
-
-
-<h3>Size</h3>
-
-<AntButton Size="@AntButtonSize.Small" Type="@(size.Equals(AntButtonSize.Small) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Small))">
-    Small
-</AntButton>
-
-<AntButton Type="@(size.Equals(AntButtonSize.Default) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Default))">
-    Default
-</AntButton>
-<AntButton Size="@AntButtonSize.Large" Type="@(size.Equals(AntButtonSize.Large) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Large))">
-    Large
-</AntButton>
-
-@code {
-    string size = AntButtonSize.Default;
-    void OnClick(string s)
-    {
-        size = s;
+<DemoContainer Component="button" Title="Loading Button">
+    <Content>
+        <AntButton type="primary" loading>
+            Loading
+        </AntButton>
+        <AntButton type="primary" size="small" loading>
+            Loading
+        </AntButton>
+        <br />
+        <AntButton type="primary" loading=@(loading) onClick=@enterLoading>
+            Click me!
+        </AntButton>
+        <AntButton type="primary"
+                   icon="poweroff"
+                   loading=@iconLoading
+                   onClick=@enterIconLoading>
+            Click me!
+        </AntButton>
+        <br />
+        <AntButton shape="circle" loading />
+        <AntButton type="primary" shape="circle" loading />
+    </Content>
+    @code{
+        private bool loading = false;
+        void enterLoading()
+        {
+            loading = !loading;
+        }
+        private bool iconLoading = false;
+        void enterIconLoading()
+        {
+            iconLoading = !iconLoading;
+        }
     }
-}
+</DemoContainer>
 
-<div>
-    <p>@size</p>
-    <AntButton Size="@size">
-        Default
-    </AntButton>
+<DemoContainer Component="button" Title="Button size">
+    <Content>
 
-    <AntButton Size="@size" Type="@AntButtonType.Primary">
-        Primary
-    </AntButton>
+        <AntButton Size="@AntButtonSize.Small" Type="@(size.Equals(AntButtonSize.Small) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Small))">
+            Small
+        </AntButton>
 
-    <AntButton Size="@size" Type="@AntButtonType.Dashed">
-        Dashed
-    </AntButton>
+        <AntButton Type="@(size.Equals(AntButtonSize.Default) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Default))">
+            Default
+        </AntButton>
+        <AntButton Size="@AntButtonSize.Large" Type="@(size.Equals(AntButtonSize.Large) ? AntButtonType.Primary : AntButtonType.Default)" OnClick="@(()=> OnClick(AntButtonSize.Large))">
+            Large
+        </AntButton>
+
+        @code {
+            string size = AntButtonSize.Default;
+            void OnClick(string s)
+            {
+                size = s;
+            }
+        }
+
+        <div>
+            <AntButton Size="@size">
+                Default
+            </AntButton>
+
+            <AntButton Size="@size" Type="@AntButtonType.Primary">
+                Primary
+            </AntButton>
+
+            <AntButton Size="@size" Type="@AntButtonType.Dashed">
+                Dashed
+            </AntButton>
 
 
-    <AntButton Size="@size" Type="@AntButtonType.Danger">
-        Danger
-    </AntButton>
+            <AntButton Size="@size" Type="@AntButtonType.Danger">
+                Danger
+            </AntButton>
 
-    <AntButton Size="@size" Type="@AntButtonType.Link">
-        Link
-    </AntButton>
-</div>
+            <AntButton Size="@size" Type="@AntButtonType.Link">
+                Link
+            </AntButton>
+        </div>
+    </Content>
+</DemoContainer>
+<DemoContainer Component="button" Title="Block Button">
+    <Content>
+        <AntButton type="primary" block>
+            Primary
+        </AntButton>
+        <AntButton block>Default</AntButton>
+        <AntButton type="dashed" block>
+            Dashed
+        </AntButton>
+        <AntButton type="danger" block>
+            Danger
+        </AntButton>
+        <AntButton type="link" block>
+            Link
+        </AntButton>
+    </Content>
+</DemoContainer>
+<DemoContainer Component="button" Title="Ghost Button">
+    <Content>
+        <AntButton type="primary" ghost>
+            Primary
+        </AntButton>
+        <AntButton ghost>Default</AntButton>
+        <AntButton type="dashed" ghost>
+            Dashed
+        </AntButton>
+        <AntButton type="danger" ghost>
+            danger
+        </AntButton>
+        <AntButton type="link" ghost>
+            link
+        </AntButton>
+    </Content>
+</DemoContainer>
+

@@ -1,12 +1,17 @@
-<div class="@Component-demo" id="components-@Component-demo-">
+<div class="@Component-demo demo-container" id="components-@Component-demo-">
     <h3 class="@Component-demo-title">@Title</h3>
     <div class="@Component-demo-content">
         @Content
     </div>
 </div>
 
-<AntDivider />
-
+<style>
+    .demo-container {
+        margin: 16px;
+        padding: 16px;
+        background-color: #fff;
+    }
+</style>
 
 @code {
 
@@ -19,4 +24,4 @@
     [Parameter]
     protected RenderFragment Code { get; set; }
 
-}
+}but
