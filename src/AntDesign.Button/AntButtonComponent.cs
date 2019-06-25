@@ -60,7 +60,7 @@ namespace AntDesign
         {
             ClassNames.Clear()
                 .Add(prefixCls)
-                .Add($"{prefixCls}-{type}")
+                .Add($"{prefixCls}-{type}", () => !string.IsNullOrEmpty(type))
                 .Add($"{prefixCls}-{shape}", () => !string.IsNullOrEmpty(shape))
                  .Add($"{prefixCls}-background-ghost", () => ghost)
                   .Add($"{prefixCls}-block", () => block)
@@ -93,7 +93,7 @@ namespace AntDesign
         [Parameter]
         public string type
         {
-            get { return _type ?? AntButtonType.Default; }
+            get { return _type; }
             set
             {
                 _type = value;
