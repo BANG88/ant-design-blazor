@@ -5,13 +5,19 @@
 
 > [https://ant.design/components/blazor/](https://ant.design/components/blazor/)
 
-## Usage
+This is a all in one package.
 
-### Install
+If you need all components you can install this package
+
+
+## Install
 
 ```sh
 dotnet add package AntDesign.Blazor
 ```
+
+
+### Usage
 
 ```cs
 @using AntDesign
@@ -19,6 +25,7 @@ dotnet add package AntDesign.Blazor
 
 ```razor
 
-<AntBlazor />
+<AntButton />
+<AntIcon type="user" />
 
 ```
