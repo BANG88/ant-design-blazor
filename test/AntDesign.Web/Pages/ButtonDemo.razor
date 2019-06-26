@@ -3,6 +3,10 @@
     .button-demo-content .ant-btn {
         margin-bottom: 8px;
     }
+
+    .button-demo-content .ant-btn-group {
+        margin-right: 8px;
+    }
 </style>
 <DemoContainer Component="button" Title="ButtonDemo">
     <Content>
@@ -58,6 +62,23 @@
             <AntButton>L</AntButton>
             <AntButton>M</AntButton>
             <AntButton>R</AntButton>
+        </AntButtonGroup>
+
+
+        <h4>With Icon</h4>
+        <AntButtonGroup>
+            <AntButton type="primary">
+                <AntIcon type="left" />
+                Go back
+            </AntButton>
+            <AntButton type="primary">
+                Go forward
+                <AntIcon type="right" />
+            </AntButton>
+        </AntButtonGroup>
+        <AntButtonGroup>
+            <AntButton type="primary" icon="cloud" />
+            <AntButton type="primary" icon="cloud-download" />
         </AntButtonGroup>
     </Content>
 </DemoContainer>
