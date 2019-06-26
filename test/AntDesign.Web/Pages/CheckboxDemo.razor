@@ -10,26 +10,25 @@
 
 <DemoContainer Component="checkbox" Title="Controlled Checkbox">
     <Content>
-        <p style={{ marginBottom: '20px' }}>
-            <AntCheckbox checked=@(Checked)
-                         disabled=@disabled>
+        <p style="margin-bottom: 20px ">
+            <AntCheckbox disabled=@disabled checked=@Checked>
                 @((Checked ? "Check" : "Uncheck") + "-" + (disabled ? "Disable" : "Enable"))
             </AntCheckbox>
         </p>
         <p>
             <AntButton type="primary" size="small" onClick="@(()=> Checked = !Checked)">
-                @(Checked ? "Check" : "Uncheck")
+                @(!Checked ? "Check" : "Uncheck")
             </AntButton>
             <AntButton style="margin-left: 10px"
                        type="primary"
                        size="small"
                        onClick="@(()=> disabled = !disabled)">
-                @(disabled ? "Disable" : "Enable")
+                @(!disabled ? "Disable" : "Enable")
             </AntButton>
         </p>
     </Content>
     @code{
-        bool Checked = false;
+        bool Checked = true;
         bool disabled = false;
     }
 </DemoContainer>

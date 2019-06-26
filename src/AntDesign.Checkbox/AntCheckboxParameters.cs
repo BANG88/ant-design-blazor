@@ -20,7 +20,16 @@ namespace AntDesign
 
 
         [Parameter]
-        public bool Checked { get => @checked || defaultChecked; set => @checked = value; }
+        public bool Checked
+        {
+            get => @checked || defaultChecked;
+            set
+            {
+
+                @checked = value;
+                this.StateHasChanged();
+            }
+        }
 
         [Parameter]
         public bool disabled { get; set; }
