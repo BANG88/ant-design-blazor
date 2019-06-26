@@ -4,3 +4,13 @@
     flex-direction: column;
     height: 100%;
 }
+
+.demo-container {
+    margin: 16px;
+    padding: 16px;
+    background-color: #fff;
+}
+
+.demo-title {
+    margin-bottom: 22px;
+}

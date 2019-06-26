@@ -1,5 +1,9 @@
 @page "/button"
-
+<style>
+    .button-demo-content .ant-btn {
+        margin-bottom: 8px;
+    }
+</style>
 <DemoContainer Component="button" Title="ButtonDemo">
     <Content>
         <AntButton>
@@ -177,3 +181,30 @@
     </Content>
 </DemoContainer>
 
+<DemoContainer Component="button" Title="Disabled Button">
+    <Content>
+        <AntButton type="primary">Primary</AntButton>
+        <AntButton type="primary" disabled>
+            Primary(disabled)
+        </AntButton>
+        <br />
+        <AntButton>Default</AntButton>
+        <AntButton disabled>Default(disabled)</AntButton>
+        <br />
+        <AntButton type="dashed">Dashed</AntButton>
+        <AntButton type="dashed" disabled>
+            Dashed(disabled)
+        </AntButton>
+        <br />
+        <AntButton type="link">Link</AntButton>
+        <AntButton type="link" disabled>
+            Link(disabled)
+        </AntButton>
+        <div style="padding:8px 8px 0 8px; background:rgb(190, 200, 200); ">
+            <AntButton ghost>Ghost</AntButton>
+            <AntButton ghost disabled>
+                Ghost(disabled)
+            </AntButton>
+        </div>
+    </Content>
+</DemoContainer>
