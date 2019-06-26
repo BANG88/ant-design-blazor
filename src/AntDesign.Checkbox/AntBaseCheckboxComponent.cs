@@ -16,7 +16,7 @@ namespace AntDesign
         {
             ClassNames.Clear()
                .Add(prefixCls)
-               .Add($"{prefixCls}-checked", () => Checked)
+               .Add($"{prefixCls}-checked", () => Checked.GetValueOrDefault())
                .Add($"{prefixCls}-disabled", () => disabled)
                ;
 
@@ -24,15 +24,18 @@ namespace AntDesign
         }
         [Parameter]
         public string prefixCls { get; set; } = "rc-checkbox";
-        [Parameter]
-        protected EventCallback<UIChangeEventArgs> OnChange { get; set; }
+        
         protected void OnChangeHandler(UIChangeEventArgs ev)
         {
             if (disabled)
             {
                 return;
             }
-            Checked = (bool)ev.Value;
+            if (!this.Checked != null)
+            {
+                Checked = (bool)ev.Value;
+            }
+           
             OnChange.InvokeAsync(ev);
         }
     }

@@ -16,9 +16,9 @@ namespace AntDesign
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()
-               .Add(prefixCls)
-               .Add($"{prefixCls}-checked", () => Checked)
-               .Add($"{prefixCls}-disabled", () => disabled)
+               .Add($"{prefixCls}-wrapper")
+                .Add($"{prefixCls}-wrapper-checked", () => Checked.GetValueOrDefault())
+                .Add($"{prefixCls}-wrapper-disabled", () => disabled)
                ;
 
             return base.OnParametersSetAsync();
@@ -27,6 +27,8 @@ namespace AntDesign
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
+        [Parameter]
+        public bool indeterminate { get; set; }
 
 
     }

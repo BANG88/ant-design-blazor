@@ -11,7 +11,7 @@
 <DemoContainer Component="checkbox" Title="Controlled Checkbox">
     <Content>
         <p style="margin-bottom: 20px ">
-            <AntCheckbox disabled=@disabled checked=@Checked>
+            <AntCheckbox disabled=@(disabled) checked=@Checked OnChange="@((ev)=> Checked = (bool)ev.Value)">
                 @((Checked ? "Check" : "Uncheck") + "-" + (disabled ? "Disable" : "Enable"))
             </AntCheckbox>
         </p>

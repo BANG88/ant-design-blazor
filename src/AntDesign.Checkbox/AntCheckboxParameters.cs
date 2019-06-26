@@ -7,7 +7,7 @@ namespace AntDesign
 {
     public class AntCheckboxParameters : AntBaseComponent
     {
-        private bool @checked;
+        private bool? @checked;
 
         [Parameter]
         public string name { get; set; }
@@ -20,14 +20,12 @@ namespace AntDesign
 
 
         [Parameter]
-        public bool Checked
+        public bool? Checked
         {
-            get => @checked || defaultChecked;
+            get => @checked != null ? @checked : defaultChecked;
             set
             {
-
                 @checked = value;
-                this.StateHasChanged();
             }
         }
 
@@ -40,5 +38,8 @@ namespace AntDesign
 
         [Parameter]
         public string value { get; set; }
+
+        [Parameter]
+        protected EventCallback<UIChangeEventArgs> OnChange { get; set; }
     }
 }
