@@ -2,9 +2,11 @@
 using System;
 using System.Collections.Generic;
 using System.Text;
-
+using OneOf;
 namespace AntDesign
 {
+    using AntCheckboxValueType = OneOf<string, int, bool>;
+
     public class AntCheckboxParameters : AntBaseComponent
     {
         private bool? @checked;
@@ -37,7 +39,7 @@ namespace AntDesign
         public bool autoFocus { get; set; }
 
         [Parameter]
-        public string value { get; set; }
+        public AntCheckboxValueType value { get; set; } = "";
 
         [Parameter]
         protected EventCallback<UIChangeEventArgs> OnChange { get; set; }

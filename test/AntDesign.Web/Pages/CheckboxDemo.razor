@@ -33,3 +33,12 @@
     }
 </DemoContainer>
 
+<DemoContainer Component="checkbox" Title="Group Checkbox">
+    <Content>
+        <AntCheckboxGroup options="@plainOptions" />
+    </Content>
+    @code {
+        List<string> plainOptions = new List<string> { "Apple", "Pear", "Orange" };
+
+    }
+</DemoContainer>

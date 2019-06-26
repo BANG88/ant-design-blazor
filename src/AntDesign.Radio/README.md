@@ -5,13 +5,14 @@
 
 > [https://ant.design/components/radio/](https://ant.design/components/radio/)
 
-## Usage
 
-### Install
+## Install
 
 ```sh
 dotnet add package AntDesign.Radio
 ```
+
+### Usage
 
 ```cs
 @using AntDesign

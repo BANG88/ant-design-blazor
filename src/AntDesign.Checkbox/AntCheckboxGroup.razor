@@ -1,8 +1,12 @@
 @namespace AntDesign
 @inherits AntCheckboxGroupComponent
 
-<h3>AntCheckboxGroup</h3>
-
-@code {
-
-}
+<div class="@Class" style="@Style">
+    @if (AllOptions.Count > 0)
+    {
+        foreach (var option in AllOptions)
+        {
+            <AntCheckbox>@option.label.Value</AntCheckbox>
+        }
+    }
+</div>
