@@ -11,18 +11,11 @@
     <PackageReference Include="Microsoft.AspNetCore.Blazor.Build" Version="3.0.0-preview6.19307.2" PrivateAssets="all" />
     <PackageReference Include="Microsoft.AspNetCore.Blazor.DevServer" Version="3.0.0-preview6.19307.2" PrivateAssets="all" />
   </ItemGroup>
-
-  <ItemGroup>
-    <ProjectReference Include="..\..\src\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj" />
-    <ProjectReference Include="..\..\src\AntDesign.Button\AntDesign.Button.csproj" />
-    <ProjectReference Include="..\..\src\AntDesign.Divider\AntDesign.Divider.csproj" />
-    <ProjectReference Include="..\..\src\AntDesign.Grid\AntDesign.Grid.csproj" />
-    <ProjectReference Include="..\..\src\AntDesign.Icon\AntDesign.Icon.csproj" />
-    <ProjectReference Include="..\..\src\AntDesign.Layout\AntDesign.Layout.csproj" />
-    <ProjectReference Include="..\..\src\AntDesign.Typography\AntDesign.Typography.csproj" />
-  </ItemGroup>
   <ItemGroup>
     <!-- extends watching group to include *.js files -->
     <Watch Include="..\..\src\**\*.razor" Exclude="node_modules\**\*.js;$(DefaultExcludes)" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\src\AntDesign.Blazor\AntDesign.Blazor.csproj" />
   </ItemGroup>
 </Project>

@@ -1,0 +1,13 @@
+@namespace AntDesign
+@inherits AntBaseCheckboxComponent
+<span class="@Class" style="@Style">
+    <input id="@id"
+           type="@(type)"
+           name="@name"
+           value="@value"
+           @checked="@(Checked)"
+           class="@($" {prefixCls}-input")"
+           autofocus="@autoFocus"
+           onchange="@(OnChangeHandler)" />
+    <span class="@($"{prefixCls}-inner")"></span>
+</span>

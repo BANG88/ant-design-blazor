@@ -1,0 +1,36 @@
+@page "/checkbox"
+<DemoContainer Component="checkbox" Title="Checkbox">
+    <Content>
+        <AntCheckbox>
+            Default
+        </AntCheckbox>
+    </Content>
+</DemoContainer>
+
+
+<DemoContainer Component="checkbox" Title="Controlled Checkbox">
+    <Content>
+        <p style={{ marginBottom: '20px' }}>
+            <AntCheckbox checked=@(Checked)
+                         disabled=@disabled>
+                @((Checked ? "Check" : "Uncheck") + "-" + (disabled ? "Disable" : "Enable"))
+            </AntCheckbox>
+        </p>
+        <p>
+            <AntButton type="primary" size="small" onClick="@(()=> Checked = !Checked)">
+                @(Checked ? "Check" : "Uncheck")
+            </AntButton>
+            <AntButton style="margin-left: 10px"
+                       type="primary"
+                       size="small"
+                       onClick="@(()=> disabled = !disabled)">
+                @(disabled ? "Disable" : "Enable")
+            </AntButton>
+        </p>
+    </Content>
+    @code{
+        bool Checked = false;
+        bool disabled = false;
+    }
+</DemoContainer>
+

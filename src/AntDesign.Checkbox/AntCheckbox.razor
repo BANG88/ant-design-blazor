@@ -1,0 +1,15 @@
+@namespace AntDesign
+@inherits AntCheckboxComponent
+<label class="@Class">
+    <AntBaseCheckbox prefixcls="@prefixCls"
+                     id="@id"
+                     type="@(type)"
+                     name="@name"
+                     value="@value"
+                     checked="@(Checked)"
+                     autofocus="@autoFocus" />
+    @if (ChildContent != null)
+    {
+        <span>@ChildContent</span>
+    }
+</label>
