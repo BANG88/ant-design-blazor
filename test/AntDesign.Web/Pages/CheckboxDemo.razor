@@ -37,13 +37,16 @@
 <DemoContainer Component="checkbox" Title="Group Checkbox">
     <Content>
         <p>
-            @_defaultOptions
+            @foreach (var item in _defaultOptions)
+            {
+                <span>@item.Value</span>
+            }
         </p>
         <AntCheckboxGroup options="@plainOptions" value="@(defaultOptions)" OnChange="@(items => _defaultOptions = items)" />
     </Content>
     @code {
         List<string> plainOptions = new List<string> { "Apple", "Pear", "Orange" };
         List<OneOf.OneOf<string, int, bool>> defaultOptions = new List<OneOf.OneOf<string, int, bool>> { "Apple", "Orange" };
-        List<OneOf.OneOf<string, int, bool>> _defaultOptions;
+        List<OneOf.OneOf<string, int, bool>> _defaultOptions = new List<OneOf.OneOf<string, int, bool>> { };
     }
 </DemoContainer>

@@ -100,7 +100,18 @@ namespace AntDesign
 
         private void toggleOption(AntCheckboxOptionType option)
         {
-            this.OnChange.InvokeAsync(this.value);
+            if (this.value.Contains(option.value))
+            {
+                this.value.Remove(option.value);
+            }
+            else
+            {
+                this.value.Add(option.value);
+            }
+
+            var v = this.value.Where(x => this.registeredValues.Contains(x)).ToList();
+
+            this.OnChange.InvokeAsync(v);
         }
 
         /// <summary>
