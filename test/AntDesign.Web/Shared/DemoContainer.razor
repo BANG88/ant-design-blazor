@@ -1,10 +1,15 @@
-<div class="@Component-demo demo-container" id="components-@Component-demo-">
-    <h3 class="@Component-demo-title demo-title">@Title</h3>
-    <div class="@Component-demo-content">
-        @Content
-    </div>
-</div>
 
+<AntCard id="@($"components-{Component}-demo-")"
+         class="@($"{Component}-demo")"
+         style="margin: 20px;"
+         bordered>
+    <Title>
+        @Title
+    </Title>
+    <Body>
+        @Content
+    </Body>
+</AntCard>
 @code {
 
     [Parameter]

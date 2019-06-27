@@ -1,8 +1,27 @@
 @namespace AntDesign
 @inherits AntCardComponent
 
-<div class="@Class">
-	<div class="@($"{prefixCls}-body")">
-		@ChildContent
-	</div>
+<div class="@Class" id="@id" style="@Style">
+    @if (Title != null || Extra != null)
+    {
+        <div class="@($"{prefixCls}-head")" style="@headStyle">
+            <div class="@($"{prefixCls}-head-wrapper")">
+                @if (Title != null)
+                {
+                    <div class="@($"{prefixCls}-head-title")">
+                        @Title
+                    </div>
+                }
+                @if (Extra != null)
+                {
+                    <div class="@($"{prefixCls}-extra")">
+                        @Extra
+                    </div>
+                }
+            </div>
+        </div>
+    }
+    <div class="@($"{prefixCls}-body")" style="@bodyStyle">
+        @Body
+    </div>
 </div>

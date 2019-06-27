@@ -45,7 +45,6 @@ namespace AntDesign
             set
             {
                 _style = value;
-                this.StateHasChanged();
             }
         }
 

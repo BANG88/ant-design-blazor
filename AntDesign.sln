@@ -27,6 +27,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Checkbox", "src\A
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Blazor", "src\AntDesign.Blazor\AntDesign.Blazor.csproj", "{AAF89362-3196-4315-8A1D-6CDEA5936BF9}"
 EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "AntDesign.Card", "src\AntDesign.Card\AntDesign.Card.csproj", "{8B712D5A-1976-4904-A464-D85607B77574}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -77,6 +79,10 @@ Global
 		{AAF89362-3196-4315-8A1D-6CDEA5936BF9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AAF89362-3196-4315-8A1D-6CDEA5936BF9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AAF89362-3196-4315-8A1D-6CDEA5936BF9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8B712D5A-1976-4904-A464-D85607B77574}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8B712D5A-1976-4904-A464-D85607B77574}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8B712D5A-1976-4904-A464-D85607B77574}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8B712D5A-1976-4904-A464-D85607B77574}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -92,6 +98,7 @@ Global
 		{F9C11C24-0583-4708-A953-8675A0775E1C} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 		{6C3971A0-1617-423F-8B83-9F559EF6F39D} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 		{AAF89362-3196-4315-8A1D-6CDEA5936BF9} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
+		{8B712D5A-1976-4904-A464-D85607B77574} = {FB8E8EFB-9ADE-4A29-AD73-B3C192FBADDA}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {B146E6E0-1C74-4F53-A874-D35B3DF09C6A}
