@@ -5,13 +5,14 @@
 
 > [https://ant.design/components/layout/](https://ant.design/components/layout/)
 
-## Usage
 
-### Install
+## Install
 
 ```sh
 dotnet add package AntDesign.Layout
 ```
+
+### Usage
 
 ```cs
 @using AntDesign
@@ -19,6 +20,10 @@ dotnet add package AntDesign.Layout
 
 ```razor
 
-<AntLayout />
+<AntLayout>
+    <AntHeader>Header</AntHeader>
+    <AntContent>Content</AntContent>
+    <AntFooter>Footer</AntFooter>
+</AntLayout>
 
 ```

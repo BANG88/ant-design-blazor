@@ -1,11 +1,21 @@
-# AntDesign.Grid
+[![NuGet](https://img.shields.io/nuget/v/AntDesign.Grid.svg?style=flat-square&color=green)](https://www.nuget.org/packages/AntDesign.Grid)
+
+
+# Grid
 
 > [https://ant.design/components/grid/](https://ant.design/components/grid/)
 
-## Usage
+
+## Install
+
+```sh
+dotnet add package AntDesign.Grid
+```
+
+### Usage
 
 ```cs
-@using AntDesign.Grid
+@using AntDesign
 ```
 
 ```razor

@@ -1,11 +1,21 @@
-# AntDesign.Divider
+[![NuGet](https://img.shields.io/nuget/v/AntDesign.Divider.svg?style=flat-square&color=green)](https://www.nuget.org/packages/AntDesign.Divider)
+
+
+# Divider
 
 > [https://ant.design/components/divider/](https://ant.design/components/divider/)
 
-## Usage
+
+## Install
+
+```sh
+dotnet add package AntDesign.Divider
+```
+
+### Usage
 
 ```cs
-@using AntDesign.Divider
+@using AntDesign
 ```
 
 ```razor

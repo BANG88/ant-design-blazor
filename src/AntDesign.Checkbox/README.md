@@ -5,13 +5,14 @@
 
 > [https://ant.design/components/checkbox/](https://ant.design/components/checkbox/)
 
-## Usage
 
-### Install
+## Install
 
 ```sh
 dotnet add package AntDesign.Checkbox
 ```
+
+### Usage
 
 ```cs
 @using AntDesign
