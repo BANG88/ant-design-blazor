@@ -87,7 +87,7 @@ namespace AntDesign
             {
                 style = $"padding-left: {this.gutter / 2}px;padding-right: {this.gutter / 2}px;";
             }
-            return $"{style} {this.Style}".Trim();
+            return $"{style} {this.style}".Trim();
         }
 
         [Parameter]

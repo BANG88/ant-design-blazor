@@ -39,7 +39,7 @@ namespace AntDesign
         /// Specifies an inline style for an DOM element.
         /// </summary>
         [Parameter]
-        public string Style
+        public string style
         {
             get => _style;
             set

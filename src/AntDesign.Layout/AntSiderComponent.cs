@@ -43,7 +43,7 @@ namespace AntDesign
 
         protected string getStyle()
         {
-            var s = $"{Style} flex: 0 0 {this.siderWidth};max-width:{this.siderWidth};min-width:{this.siderWidth};width:{this.siderWidth};";
+            var s = $"{style} flex: 0 0 {this.siderWidth};max-width:{this.siderWidth};min-width:{this.siderWidth};width:{this.siderWidth};";
             return s;
         }
         public string siderWidth => this.collapsed ? this.collapsedWidth : this.width;

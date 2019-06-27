@@ -1,15 +1,15 @@
 @inherits LayoutComponentBase
-<AntLayout>
-    <AntHeader>
-        <a href="https://ant.design/" target="_blank">Ant Design</a>
-    </AntHeader>
-    <AntLayout hasSider="true">
-        <AntSider>
-            <NavMenu />
-        </AntSider>
+<AntLayout hasSider="true">
+    <AntSider width="200px" style="background-color:#fff;">
+        <NavMenu />
+    </AntSider>
+    <AntLayout>
+        <AntHeader>
+            <a href="https://ant.design/" target="_blank">Ant Design</a>
+        </AntHeader>
         <AntContent>
             @Body
         </AntContent>
+        <AntFooter>Ant Design for Blazor</AntFooter>
     </AntLayout>
-    <AntFooter>Footer</AntFooter>
 </AntLayout>

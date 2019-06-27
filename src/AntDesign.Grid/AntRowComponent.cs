@@ -71,7 +71,7 @@ namespace AntDesign
             {
                 style = $"margin-left: -{this.gutter / 2}px;margin-right: {this.gutter / 2}px;";
             }
-            return $"{style} {this.Style}".Trim();
+            return $"{style} {this.style}".Trim();
         }
         [Parameter]
         public RenderFragment ChildContent { get; set; }
