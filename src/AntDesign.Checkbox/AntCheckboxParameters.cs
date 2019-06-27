@@ -40,8 +40,14 @@ namespace AntDesign
 
         [Parameter]
         public AntCheckboxValueType value { get; set; } = "";
-
         [Parameter]
         protected EventCallback<UIChangeEventArgs> OnChange { get; set; }
+
+        [Parameter]
+        public RenderFragment ChildContent { get; set; }
+
+        [CascadingParameter(Name = "checkboxGroup")]
+        public AntCheckboxGroupContext checkboxGroup { get; set; }
+
     }
 }

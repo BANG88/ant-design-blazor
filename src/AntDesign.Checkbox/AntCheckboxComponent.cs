@@ -23,13 +23,21 @@ namespace AntDesign
 
             return base.OnParametersSetAsync();
         }
+        protected override Task OnAfterRenderAsync()
+        {
+            if (this.checkboxGroup != null)
+            {
+                this.checkboxGroup.registerValue(this.value);
 
-        [Parameter]
-        public RenderFragment ChildContent { get; set; }
+            }
+            return base.OnAfterRenderAsync();
+        }
 
         [Parameter]
         public bool indeterminate { get; set; }
 
+
+        
 
     }
 }

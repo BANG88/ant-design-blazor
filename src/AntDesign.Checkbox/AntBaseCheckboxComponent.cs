@@ -24,7 +24,7 @@ namespace AntDesign
         }
         [Parameter]
         public string prefixCls { get; set; } = "rc-checkbox";
-        
+
         protected void OnChangeHandler(UIChangeEventArgs ev)
         {
             if (disabled)
@@ -35,8 +35,19 @@ namespace AntDesign
             {
                 Checked = (bool)ev.Value;
             }
-           
-            OnChange.InvokeAsync(ev);
+            if (this.checkboxGroup != null)
+            {
+                this.checkboxGroup.toggleOption(new AntCheckboxOptionType
+                {
+                    value = this.value,
+                    label = this.ChildContent
+                });
+            }
+            else
+            {
+                OnChange.InvokeAsync(ev);
+            }
         }
+
     }
 }

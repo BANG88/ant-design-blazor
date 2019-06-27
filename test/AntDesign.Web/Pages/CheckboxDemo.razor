@@ -15,6 +15,7 @@
                 @((Checked ? "Check" : "Uncheck") + "-" + (disabled ? "Disable" : "Enable"))
             </AntCheckbox>
         </p>
+
         <p>
             <AntButton type="primary" size="small" onClick="@(()=> Checked = !Checked)">
                 @(!Checked ? "Check" : "Uncheck")
@@ -35,10 +36,14 @@
 
 <DemoContainer Component="checkbox" Title="Group Checkbox">
     <Content>
-        <AntCheckboxGroup options="@plainOptions" />
+        <p>
+            @_defaultOptions
+        </p>
+        <AntCheckboxGroup options="@plainOptions" value="@(defaultOptions)" OnChange="@(items => _defaultOptions = items)" />
     </Content>
     @code {
         List<string> plainOptions = new List<string> { "Apple", "Pear", "Orange" };
-
+        List<OneOf.OneOf<string, int, bool>> defaultOptions = new List<OneOf.OneOf<string, int, bool>> { "Apple", "Orange" };
+        List<OneOf.OneOf<string, int, bool>> _defaultOptions;
     }
 </DemoContainer>

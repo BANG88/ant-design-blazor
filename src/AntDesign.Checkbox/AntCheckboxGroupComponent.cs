@@ -13,16 +13,19 @@ namespace AntDesign
     {
         public OneOf<RenderFragment, string> label { get; set; }
         public AntCheckboxValueType value { get; set; }
-        public bool disabled { get; set; }
+        public bool? disabled { get; set; }
         public EventCallback<UIChangeEventArgs> OnChange { get; set; }
     }
 
     public class AntCheckboxGroupContext
     {
-        public EventCallback<AntCheckboxOptionType> toggleOption { get; set; }
+        public Action<AntCheckboxOptionType> toggleOption { get; set; }
         public AntCheckboxValueType value { get; set; }
         public bool disabled { get; set; }
         public string name { get; set; }
+        public Action<AntCheckboxValueType> registerValue { get; set; }
+        public Action<AntCheckboxValueType> cancelValue { get; set; }
+
     }
     /// <summary>
     /// Base Component for AntCheckboxGroup
@@ -31,7 +34,7 @@ namespace AntDesign
     {
         private string prefixCls = getPrefixCls("checkbox");
 
-        private string groupPrefixCls => $"{prefixCls}-group";
+        protected string groupPrefixCls => $"{prefixCls}-group";
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()
@@ -39,7 +42,9 @@ namespace AntDesign
 
             return base.OnParametersSetAsync();
         }
-
+        /// <summary>
+        /// disabled
+        /// </summary>
         [Parameter]
         public bool disabled { get; set; }
 
@@ -49,22 +54,69 @@ namespace AntDesign
         [Parameter]
         public string name { get; set; }
 
-        [Parameter]
-        public List<AntCheckboxValueType> value { get; set; }
 
+        /// <summary>
+        /// value
+        /// </summary>
+        private List<AntCheckboxValueType> value1;
+
+        [Parameter]
+        public List<AntCheckboxValueType> value { get => value1 ?? defaultValue; set => value1 = value; }
+
+
+        /// <summary>
+        /// default value
+        /// </summary>
         [Parameter]
         public List<AntCheckboxValueType> defaultValue { get; set; }
 
+        /// <summary>
+        /// OnChange
+        /// </summary>
         [Parameter]
         public EventCallback<List<AntCheckboxValueType>> OnChange { get; set; }
 
+        protected bool hasChecked(AntCheckboxValueType value)
+        {
+            return this.value.Contains(value);
+        }
+        /// <summary>
+        /// local value
+        /// </summary>
+        private List<AntCheckboxValueType> registeredValues = new List<AntCheckboxValueType> { };
+        private void registerValue(AntCheckboxValueType value)
+        {
+            // Only add if its not existing
+            if (!this.registeredValues.Contains(value))
+            {
+                this.registeredValues.Add(value);
+            }
 
+        }
+        private void cancelValue(AntCheckboxValueType value)
+        {
+            this.registeredValues.Remove(value);
+        }
+
+        private void toggleOption(AntCheckboxOptionType option)
+        {
+            this.OnChange.InvokeAsync(this.value);
+        }
+
+        /// <summary>
+        /// child context
+        /// </summary>
+        /// <returns></returns>
         protected AntCheckboxGroupContext getChildContext()
         {
             return new AntCheckboxGroupContext
             {
                 name = this.name,
                 disabled = this.disabled,
+
+                registerValue = this.registerValue,
+                cancelValue = this.cancelValue,
+                toggleOption = this.toggleOption,
             };
         }
 

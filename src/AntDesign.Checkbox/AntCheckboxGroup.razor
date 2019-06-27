@@ -1,12 +1,20 @@
 @namespace AntDesign
 @inherits AntCheckboxGroupComponent
 
-<div class="@Class" style="@style">
-    @if (AllOptions.Count > 0)
-    {
-        foreach (var option in AllOptions)
+<CascadingValue Value="getChildContext()" Name="checkboxGroup">
+
+    <div class="@Class" style="@style">
+        @if (AllOptions.Count > 0)
         {
-            <AntCheckbox>@option.label.Value</AntCheckbox>
+            @foreach (var option in AllOptions)
+            {
+                <AntCheckbox OnChange="@option.OnChange"
+                             disabled="@(option.disabled != null ? option.disabled.Value: disabled)"
+                             Class="@($" {groupPrefixCls}-item")"
+                             Checked="@hasChecked(option.value)"
+                             value="@(option.value)">@(option.label.Value)</AntCheckbox>
+                        }
         }
-    }
-</div>
+    </div>
+
+</CascadingValue>
