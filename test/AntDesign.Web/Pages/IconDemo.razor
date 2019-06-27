@@ -33,31 +33,34 @@
 
 @foreach (var icon in icons)
 {
-
-    <h3>@(icon.title)</h3>
-    <ul class="icons">
-        @foreach (var item in icon.items)
-        {
-        <li>
-            <AntIcon Type="@item.Name" Theme="@item.Theme" />
-
-            @*<i class="anticon anticon-@(item.Name.Equals("loading") ? "spin" : item.Name)">
-
-                @if (item != null)
+    <DemoContainer Component="icon" title="@icon.title">
+        <Content>
+            <ul class="icons">
+                @foreach (var item in icon.items)
                 {
-                    <svg viewBox="@item.ViewBox" focusable="false" width="1em" height="1em" fill="currentColor">
-                        @foreach (var d in item.Paths)
-                        {
-                            <path d="@d"></path>
-                        }
-                    </svg>
-                }
-            </i>*@
+                    <li>
+                        <AntIcon Type="@item.Name" Theme="@item.Theme" />
 
-            <p>@item.Name</p>
-        </li>
-        }
-    </ul>
+                        @*<i class="anticon anticon-@(item.Name.Equals("loading") ? "spin" : item.Name)">
+
+                                @if (item != null)
+                                {
+                                    <svg viewBox="@item.ViewBox" focusable="false" width="1em" height="1em" fill="currentColor">
+                                        @foreach (var d in item.Paths)
+                                        {
+                                            <path d="@d"></path>
+                                        }
+                                    </svg>
+                                }
+                            </i>*@
+
+                        <p>@item.Name</p>
+                    </li>
+                }
+            </ul>
+        </Content>
+    </DemoContainer>
+
 }
 
 
@@ -84,5 +87,6 @@
             title = "Outline",
             items = AntIcons.icons.Values.Where(x => x.Theme.Equals("outline")),
             },
-                        };
+
+                                            };
 }
