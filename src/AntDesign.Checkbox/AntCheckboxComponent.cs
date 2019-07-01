@@ -28,7 +28,7 @@ namespace AntDesign
             if (this.checkboxGroup != null)
             {
                 this.checkboxGroup.registerValue(this.value);
-
+                this.name = this.checkboxGroup.name;
             }
             return base.OnAfterRenderAsync();
         }
@@ -37,7 +37,7 @@ namespace AntDesign
         public bool indeterminate { get; set; }
 
 
-        
+
 
     }
 }

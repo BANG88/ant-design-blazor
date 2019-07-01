@@ -42,11 +42,10 @@ namespace AntDesign
                     value = this.value,
                     label = this.ChildContent
                 });
+
             }
-            else
-            {
-                OnChange.InvokeAsync(ev);
-            }
+
+            OnChange.InvokeAsync(ev);
         }
 
     }

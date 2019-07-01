@@ -20,7 +20,7 @@ namespace AntDesign
     public class AntCheckboxGroupContext
     {
         public Action<AntCheckboxOptionType> toggleOption { get; set; }
-        public AntCheckboxValueType value { get; set; }
+        public List<AntCheckboxValueType> value { get; set; }
         public bool disabled { get; set; }
         public string name { get; set; }
         public Action<AntCheckboxValueType> registerValue { get; set; }
