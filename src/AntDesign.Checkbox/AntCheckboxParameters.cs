@@ -46,8 +46,7 @@ namespace AntDesign
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        [CascadingParameter(Name = "checkboxGroup")]
-        public AntCheckboxGroupContext checkboxGroup { get; set; }
+        
 
     }
 }

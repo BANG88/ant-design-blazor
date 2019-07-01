@@ -31,20 +31,12 @@ namespace AntDesign
             {
                 return;
             }
-            if (!this.Checked != null)
+            if (this.Checked == null)
             {
-                Checked = (bool)ev.Value;
+                bool _checked;
+                bool.TryParse(ev.Value.ToString(), out _checked);
+                Checked = _checked;
             }
-            if (this.checkboxGroup != null)
-            {
-                this.checkboxGroup.toggleOption(new AntCheckboxOptionType
-                {
-                    value = this.value,
-                    label = this.ChildContent
-                });
-
-            }
-
             OnChange.InvokeAsync(ev);
         }
 

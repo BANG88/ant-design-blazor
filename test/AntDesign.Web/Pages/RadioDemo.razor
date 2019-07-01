@@ -1,0 +1,69 @@
+@page "/radio"
+<DemoContainer Component="radio" Title="Radio">
+    <Content>
+        <AntRadio checked="true">
+            Default
+        </AntRadio>
+    </Content>
+</DemoContainer>
+
+
+<DemoContainer Component="checkbox" Title="Controlled Checkbox">
+    <Content>
+        <p style="margin-bottom: 20px ">
+            <AntCheckbox disabled=@(disabled) checked=@Checked OnChange="@((ev)=> Checked = (bool)ev.Value)">
+                @((Checked ? "Check" : "Uncheck") + "-" + (disabled ? "Disable" : "Enable"))
+            </AntCheckbox>
+        </p>
+
+        <p>
+            <AntButton type="primary" size="small" onClick="@(()=> Checked = !Checked)">
+                @(!Checked ? "Check" : "Uncheck")
+            </AntButton>
+            <AntButton style="margin-left: 10px"
+                       type="primary"
+                       size="small"
+                       onClick="@(()=> disabled = !disabled)">
+                @(!disabled ? "Disable" : "Enable")
+            </AntButton>
+        </p>
+    </Content>
+    @code{
+        bool Checked = true;
+        bool disabled = false;
+    }
+</DemoContainer>
+
+<DemoContainer Component="checkbox" Title="Group Checkbox">
+    <Content>
+        <div style="border-bottom: 1px solid #E9E9E9; ">
+            <AntCheckbox indeterminate=@indeterminate
+                         onChange=@((e)=> {
+                                        bool _checked;
+                                        bool.TryParse(e.Value.ToString(), out _checked);
+                                        defaultOptions = _checked ? new List<OneOf.OneOf<string, int, bool>> { "Apple", "Pear", "Orange"  } : new List<OneOf.OneOf<string, int, bool>> { };
+                                        checkAll = _checked;
+                                        indeterminate = false;
+                                    })
+                         checked="checkAll">
+                Check all
+            </AntCheckbox>
+        </div>
+        <br />
+ 
+        <AntCheckboxGroup options="@plainOptions"
+                          value="@(defaultOptions)"
+                          OnChange="@(items =>
+                                                                                        {
+                                                                                            defaultOptions = items;
+                                                                                            checkAll = items.Count.Equals(plainOptions.Count);
+                                                                                            indeterminate = items.Count > 0 && items.Count < plainOptions.Count;
+                                                                                        })" />
+    </Content>
+    @code {
+        bool indeterminate = true;
+        bool checkAll = false;
+        List<string> plainOptions = new List<string> { "Apple", "Pear", "Orange" };
+        List<OneOf.OneOf<string, int, bool>> defaultOptions = new List<OneOf.OneOf<string, int, bool>> { "Apple", "Orange" };
+    }
+</DemoContainer>

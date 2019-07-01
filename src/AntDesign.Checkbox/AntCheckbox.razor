@@ -8,7 +8,7 @@
                      value="@value"
                      checked="@(Checked)"
                      autofocus="@autoFocus"
-                     onchange="@(OnChange)"
+                     onchange="@(OnChangeHandler)"
                      disabled="@disabled"
                      class="@(indeterminate ? $"{prefixCls}-indeterminate": "")" />
     @if (ChildContent != null)

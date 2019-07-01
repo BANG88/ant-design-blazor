@@ -37,7 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj" />
+    <ProjectReference Include="..\AntDesign.Checkbox\AntDesign.Checkbox.csproj" />
   </ItemGroup>
 
 </Project>

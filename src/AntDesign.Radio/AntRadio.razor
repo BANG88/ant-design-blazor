@@ -1,8 +1,18 @@
 @namespace AntDesign
 @inherits AntRadioComponent
+<label class="@Class" style="@style">
+    <AntBaseCheckbox prefixcls="@prefixCls"
+                     id="@id"
+                     type="radio"
+                     name="@name"
+                     value="@value"
+                     checked="@(Checked)"
+                     autofocus="@autoFocus"
+                     onchange="@(OnChangeHandler)"
+                     disabled="@disabled" />
 
-<h3>AntRadio</h3>
-
-@code {
-
-}
+    @if (ChildContent != null)
+    {
+        <span>@ChildContent</span>
+    }
+</label>

@@ -36,7 +36,23 @@ namespace AntDesign
         [Parameter]
         public bool indeterminate { get; set; }
 
+        [CascadingParameter(Name = "checkboxGroup")]
+        public AntCheckboxGroupContext checkboxGroup { get; set; }
+        protected void OnChangeHandler(UIChangeEventArgs ev)
+        {
+           
+            if (this.checkboxGroup != null)
+            {
+                this.checkboxGroup.toggleOption(new AntCheckboxOptionType
+                {
+                    value = this.value,
+                    label = this.ChildContent
+                });
 
+            }
+
+            OnChange.InvokeAsync(ev);
+        }
 
 
     }
