@@ -1,0 +1,27 @@
+@namespace AntDesign
+@inherits AntAvatarComponent
+
+<span class="@Class" style="@style">
+    @if (!string.IsNullOrEmpty(src) && isImgExist)
+    {
+        <img src="@src" srcset="@srcSet" alt="@alt" onerror="@onError" />
+    }
+    else if (!string.IsNullOrEmpty(icon))
+    {
+        <AntIcon type="@icon" />
+    }
+    else
+    {
+        <span class="@($"{prefixCls}-string")">
+            @ChildContent
+        </span>
+    }
+</span>
+
+@code   {
+    private bool isImgExist = true;
+    void onError()
+    {
+        isImgExist = false;
+    }
+}

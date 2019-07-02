@@ -6,16 +6,17 @@
     </li>
     @foreach (var item in navs)
     {
-    <li class="nav-item px-3">
-        <NavLink class="nav-link" href="@item">
-            <span class="oi oi-plus" aria-hidden="true"></span> @item
-        </NavLink>
-    </li>
+        <li class="nav-item px-3">
+            <NavLink class="nav-link" href="@item">
+                <span class="oi oi-plus" aria-hidden="true"></span> @item
+            </NavLink>
+        </li>
     }
 </ul>
 
 @code {
     List<string> navs = new List<string> {
+        "Avatar",
     "Button",
     "Icon",
     "Typography","Grid",
