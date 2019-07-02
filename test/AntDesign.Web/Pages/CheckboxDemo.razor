@@ -36,21 +36,19 @@
 
 <DemoContainer Component="checkbox" Title="Group Checkbox">
     <Content>
-        <div style="border-bottom: 1px solid #E9E9E9; ">
-            <AntCheckbox indeterminate=@indeterminate
-                         onChange=@((e)=> {
-                                        bool _checked;
-                                        bool.TryParse(e.Value.ToString(), out _checked);
-                                        defaultOptions = _checked ? new List<OneOf.OneOf<string, int, bool>> { "Apple", "Pear", "Orange"  } : new List<OneOf.OneOf<string, int, bool>> { };
+        <AntCheckbox indeterminate=@indeterminate
+                     onChange=@((e) =>
+            {
+            bool _checked;
+            bool.TryParse(e.Value.ToString(), out _checked);
+            defaultOptions = _checked ? new List<OneOf.OneOf<string, int, bool>> { "Apple", "Pear", "Orange"  } : new List<OneOf.OneOf<string, int, bool>> { };
                                         checkAll = _checked;
                                         indeterminate = false;
                                     })
-                         checked="checkAll">
-                Check all
-            </AntCheckbox>
-        </div>
+                     checked="checkAll">
+            Check all
+        </AntCheckbox>
         <br />
- 
         <AntCheckboxGroup options="@plainOptions"
                           value="@(defaultOptions)"
                           OnChange="@(items =>

@@ -18,7 +18,7 @@
     <PackageLicenseExpression>MIT</PackageLicenseExpression>
     <Authors>启邦</Authors>
     <PackageIconUrl>https://gw.alipayobjects.com/zos/rmsportal/KDpgvguMpGfqaHPjicRK.svg</PackageIconUrl>
-    <PackageVersion>$(VersionSuffix)</PackageVersion>
+		<PackageVersion>$(VersionSuffix)</PackageVersion>
   </PropertyGroup>
 
   <ItemGroup>
