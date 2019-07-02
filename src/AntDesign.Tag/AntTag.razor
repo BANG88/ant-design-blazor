@@ -1,0 +1,10 @@
+@namespace AntDesign
+@inherits AntTagComponent
+
+<div class="@Class" style="@TagStyle">
+    @ChildContent
+    @if (closable)
+    {
+        <AntIcon Type="close" onclick="@OnClickHandler"/>
+    }
+</div>

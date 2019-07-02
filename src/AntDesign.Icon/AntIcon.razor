@@ -1,7 +1,7 @@
 @namespace AntDesign
 @inherits AntIconComponent
 
-<i class="@Class anticon anticon-@(Type.Equals("loading") ? "spin" : Type)">
+<i class="@Class anticon anticon-@(Type.Equals("loading") ? "spin" : Type)" onclick="@OnClick">
 
     @if (Icon != null)
     {

@@ -47,5 +47,8 @@ namespace AntDesign
             return base.OnParametersSetAsync();
         }
 
+        [Parameter]
+        public EventCallback<UIMouseEventArgs> OnClick { get; set; }
+
     }
 }
