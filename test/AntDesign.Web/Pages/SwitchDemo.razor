@@ -1,0 +1,45 @@
+﻿@page "/switch"
+<DemoContainer Component="switch" Title="Switch">
+    <Content>
+        <AntSwitch defaultChecked />
+    </Content>
+</DemoContainer>
+
+<DemoContainer Component="switch" Title="Switch Icon">
+    <Content>
+        <AntSwitch defaultChecked="true">
+            <CheckedChildren>
+                开
+            </CheckedChildren>
+            <UnCheckedChildren>
+                关
+            </UnCheckedChildren>
+        </AntSwitch>
+
+        <br />
+
+        <AntSwitch defaultChecked="true">
+            <CheckedChildren>
+                <AntIcon Type="check" />
+            </CheckedChildren>
+            <UnCheckedChildren>
+                <AntIcon Type="close" />
+            </UnCheckedChildren>
+        </AntSwitch>
+    </Content>
+</DemoContainer>
+
+<DemoContainer Component="switch" Title="Switch loading">
+    <Content>
+        <AntSwitch loading defaultChecked />
+        <br />
+        <AntSwitch size="small" loading />
+    </Content>
+</DemoContainer>
+<DemoContainer Component="switch" Title="Switch size">
+    <Content>
+        <AntSwitch defaultChecked />
+        <br />
+        <AntSwitch size="small" defaultChecked />
+    </Content>
+</DemoContainer>

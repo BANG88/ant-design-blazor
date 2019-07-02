@@ -38,16 +38,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj" />
-    <ProjectReference Include="..\AntDesign.Button\AntDesign.Button.csproj" />
-    <ProjectReference Include="..\AntDesign.Checkbox\AntDesign.Checkbox.csproj" />
-    <ProjectReference Include="..\AntDesign.Divider\AntDesign.Divider.csproj" />
-    <ProjectReference Include="..\AntDesign.Grid\AntDesign.Grid.csproj" />
     <ProjectReference Include="..\AntDesign.Icon\AntDesign.Icon.csproj" />
-    <ProjectReference Include="..\AntDesign.Layout\AntDesign.Layout.csproj" />
-    <ProjectReference Include="..\AntDesign.Radio\AntDesign.Radio.csproj" />
-    <ProjectReference Include="..\AntDesign.Switch\AntDesign.Switch.csproj" />
-    <ProjectReference Include="..\AntDesign.Typography\AntDesign.Typography.csproj" />
-    <ProjectReference Include="..\AntDesign.Card\AntDesign.Card.csproj" />
   </ItemGroup>
 
 </Project>

@@ -1,0 +1,16 @@
+@namespace AntDesign
+@inherits AntSwitchComponent
+<button type="button" role="switch"
+        aria-checked="@Checked"
+        disabled="@disabled"
+        class="@Class"
+        style="@style"
+        onclick="@OnClickHandler">
+    @if (loading)
+    {
+        <AntIcon type="loading" Class="@($"{prefixCls}-loading-icon")" />
+    }
+    <span class="@($"{prefixCls}-inner")">
+        @(Checked.GetValueOrDefault() ? CheckedChildren : UnCheckedChildren)
+    </span>
+</button>
