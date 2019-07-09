@@ -1,7 +1,7 @@
 @page "/input"
 <DemoContainer Component="input" Title="Input">
     <Content>
-        <AntInput/>
+        <AntInput />
     </Content>
 </DemoContainer>
 
@@ -19,8 +19,15 @@
 
 <DemoContainer Component="input" Title="Input addon">
     <Content>
-       <div style="margin-bottom: 16px;">
-      <AntInput addonBefore="Http://" addonAfter=".com"  />
-    </div>
+        <div style="margin-bottom: 16px;">
+            <AntInput>
+                <AddonBefore>
+                    http://
+                </AddonBefore>
+                <AddonAfter>
+                    .com
+                </AddonAfter>
+            </AntInput>
+        </div>
     </Content>
 </DemoContainer>

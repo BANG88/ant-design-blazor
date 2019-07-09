@@ -6,14 +6,17 @@
         <span class="@getMergedWrapperClassName()">
             @if (AddonBefore != null)
             {
-                    <span class="@addonClassName">@AddonBefore</span>
+                <span class="@addonClassName">@AddonBefore</span>
             }
-<input class="@getInputClass()" placeholder="@placeholder" value="@value" disabled="@disabled"/>
- @if (AddonAfter != null)
+            <input class="@getInputClass()" placeholder="@placeholder" value="@value" disabled="@disabled" />
+            @if (AddonAfter != null)
             {
-                    <span class="@addonClassName">@AddonAfter</span>
-            }        </span>
+                <span class="@addonClassName">@AddonAfter</span>
+            }
+        </span>
     </span>
-}else{
-<input class="@getInputClass()" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled"/>
+}
+else
+{
+    <input class="@getInputClass()" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
 }

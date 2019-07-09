@@ -14,8 +14,7 @@ namespace AntDesign
         protected string prefixCls = getPrefixCls("input");
         protected override Task OnParametersSetAsync()
         {
-            ClassNames.Clear()
-            .Add(prefixCls);
+            ClassNames.Clear();
 
             return base.OnParametersSetAsync();
         }
