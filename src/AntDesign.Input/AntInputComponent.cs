@@ -41,32 +41,56 @@ namespace AntDesign
         {
             get => $"{wrapperClassName}-addon";
         }
-
-        protected string getMergedGroupClassName()
+        protected bool hasPrefixSuffix
         {
-            ClassNames classNames = new ClassNames();
-            classNames
-            .Add($"{prefixCls}-group-wrapper")
-            .Add($"{prefixCls}-group-wrapper-sm", () => size.Equals("small"))
-            .Add($"{prefixCls}-group-wrapper-lg", () => size.Equals("large"))
-            ;
-
-            return $"{Class} {classNames.Class}".Trim();
+            get => Prefix != null || Suffix != null || allowClear;
         }
-        protected string getMergedWrapperClassName()
+        protected string MergedGroupClassName
         {
-            ClassNames classNames = new ClassNames();
-            classNames
-            .Add($"{prefixCls}-wrapper")
-            .Add($"{wrapperClassName}", () => AddonBefore != null || AddonAfter != null)
-            ;
+            get
+            {
+                ClassNames classNames = new ClassNames();
+                classNames
+                .Add($"{prefixCls}-group-wrapper")
+                .Add($"{prefixCls}-group-wrapper-sm", () => size.Equals("small"))
+                .Add($"{prefixCls}-group-wrapper-lg", () => size.Equals("large"))
+                ;
 
-            return $"{classNames.Class}".Trim();
+                return $"{Class} {classNames.Class}".Trim();
+            }
         }
-        protected string getInputClass()
+
+        protected string AffixWrapperCls
         {
-            return $"{this.getInputClassName()}".Trim();
+            get
+            {
+                ClassNames classNames = new ClassNames();
+                classNames
+                .Add($"{prefixCls}-affix-wrapper")
+                .Add($"{prefixCls}-affix-wrapper-sm", () => size.Equals("small"))
+                .Add($"{prefixCls}-affix-wrapper-lg", () => size.Equals("large"))
+                ;
+
+                return $"{Class} {classNames.Class}".Trim();
+            }
         }
+
+        protected string MergedWrapperClassName
+        {
+            get
+            {
+                ClassNames classNames = new ClassNames();
+                classNames
+                .Add($"{prefixCls}-wrapper")
+                .Add($"{wrapperClassName}", () => AddonBefore != null || AddonAfter != null)
+                ;
+
+                return $"{classNames.Class}".Trim();
+            }
+        }
+
+        protected string InputClass => $"{this.getInputClassName()}".Trim();
+
         [Parameter]
         public string size { get; set; } = "default";
 
@@ -88,5 +112,8 @@ namespace AntDesign
         public RenderFragment Prefix { get; set; }
         [Parameter]
         public RenderFragment Suffix { get; set; }
+
+        [Parameter]
+        public bool allowClear { get; set; }
     }
 }
