@@ -15,9 +15,37 @@ namespace AntDesign
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()
-               .Add(prefixCls);
+            .Add(prefixCls);
 
             return base.OnParametersSetAsync();
         }
+
+
+        private string getInputClassName()
+        {
+            ClassNames classNames = new ClassNames();
+            classNames
+            .Add($"{prefixCls}-sm", () => size.Equals("small"))
+            .Add($"{prefixCls}-lg", () => size.Equals("large"))
+            .Add($"{prefixCls}-disabled", () => disabled)
+            ;
+
+            return classNames.Class;
+        }
+
+        protected string getInputClass()
+        {
+            return $"{Class} {this.getInputClassName()}".Trim();
+        }
+        [Parameter]
+        public string size { get; set; } = "default";
+
+        [Parameter]
+        public bool disabled { get; set; }
+
+        [Parameter]
+        public string value { get; set; }
+        [Parameter]
+        public string placeholder { get; set; }
     }
 }
