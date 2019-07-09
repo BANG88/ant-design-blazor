@@ -1,3 +1,19 @@
 @namespace AntDesign
 @inherits AntInputComponent
-<input class="@getInputClass()" style="@style" placeholder="@placeholder"/>
+@if (AddonBefore != null && AddonAfter != null)
+{
+    <span class="@getMergedGroupClassName()" style="@style">
+        <span class="@getMergedWrapperClassName()">
+            @if (AddonBefore != null)
+            {
+                    <span class="@addonClassName">@AddonBefore</span>
+            }
+<input class="@getInputClass()" placeholder="@placeholder" value="@value" disabled="@disabled"/>
+ @if (AddonAfter != null)
+            {
+                    <span class="@addonClassName">@AddonAfter</span>
+            }        </span>
+    </span>
+}else{
+<input class="@getInputClass()" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled"/>
+}
