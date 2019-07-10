@@ -1,0 +1,32 @@
+@namespace AntDesign
+@inherits AntSearchComponent
+
+<AntInput size="@size" Class="@InputClassName" placeholder="@placeholder" value="@value" disabled="@disabled">
+    <Suffix>
+        @Suffix
+        @if (!hasEnterButton)
+        {
+            <AntIcon Type="search" Class="@($" {prefixCls}-icon")" OnClick="@OnClickHandler" />
+        }
+    </Suffix>
+    <AddonAfter>
+        @if (!hasEnterButton)
+        {
+            @AddonAfter
+        }
+        else
+        {
+            <AntButton Class="@($" {prefixCls}-button")" type="@AntButtonType.Primary" disabled="@disabled" size="@size" OnClick="@OnClickHandler">
+                @if (enterButton)
+                {
+                    <AntIcon Type="search" />
+                }
+                else
+                {
+                    @enterButtonText
+                }
+            </AntButton>
+            @AddonAfter
+        }
+    </AddonAfter>
+</AntInput>

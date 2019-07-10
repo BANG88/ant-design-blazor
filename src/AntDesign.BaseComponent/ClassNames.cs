@@ -10,6 +10,15 @@ namespace AntDesign
     {
         public string Class => string.Join(" ", map.Where(i => i.Value()).Select(i => i.Key));
 
+        /// <summary>
+        /// Get class names
+        /// </summary>
+        /// <returns></returns>
+        public override string ToString()
+        {
+            return this.Class;
+        }
+
         private Dictionary<string, Func<bool>> map = new Dictionary<string, Func<bool>>();
 
         /// <summary>

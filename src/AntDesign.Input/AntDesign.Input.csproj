@@ -37,6 +37,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\AntDesign.Button\AntDesign.Button.csproj" />
     <ProjectReference Include="..\AntDesign.Icon\AntDesign.Icon.csproj" />
   </ItemGroup>
 

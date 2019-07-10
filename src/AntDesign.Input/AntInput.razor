@@ -1,6 +1,37 @@
 @namespace AntDesign
 @inherits AntInputComponent
-@if (AddonBefore != null || AddonAfter != null)
+
+@if (AddonAfter == null && AddonBefore == null)
+{
+    @if (!hasPrefixSuffix)
+    {
+        <input class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
+    }
+    else
+    {
+        <span class="@AffixWrapperCls" style="@style">
+            @if (Prefix != null)
+            {
+                <span class="@($"{prefixCls}-prefix")">@Prefix</span>
+            }
+            <input class="@InputClass" placeholder="@placeholder" value="@value" disabled="@disabled" />
+            @if (Suffix != null || allowClear)
+            {
+                <span class="@($"{prefixCls}-suffix")">
+                    @if (allowClear || !string.IsNullOrEmpty(value))
+                    {
+                        <AntIcon Type="close-circle"
+                                 Theme="filled"
+                                 Class="@($"{prefixCls}-clear-icon")"
+                                 OnClick="@(() => { value = ""; })" />
+                    }
+                    @Suffix
+                </span>
+            }
+        </span>
+    }
+}
+else
 {
     <span class="@MergedGroupClassName" style="@style">
         <span class="@MergedWrapperClassName">
@@ -8,41 +39,11 @@
             {
                 <span class="@addonClassName">@AddonBefore</span>
             }
-
-            <input class="@InputClass" placeholder="@placeholder" value="@value" disabled="@disabled" />
-
+            <input class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
             @if (AddonAfter != null)
             {
                 <span class="@addonClassName">@AddonAfter</span>
             }
         </span>
     </span>
-}
-else if (hasPrefixSuffix)
-{
-    <span class="@AffixWrapperCls" style="@style">
-        @if (Prefix != null)
-        {
-            <span class="@($"{prefixCls}-prefix")">@Prefix</span>
-        }
-        <input class="@InputClass" placeholder="@placeholder" value="@value" disabled="@disabled" />
-        @if (Suffix != null || allowClear)
-        {
-            <span class="@($"{prefixCls}-suffix")">
-                @if (allowClear || !string.IsNullOrEmpty(value))
-                {
-                    <AntIcon Type="close-circle"
-                             Theme="filled"
-                             Class="@($"{prefixCls}-clear-icon")"
-                             OnClick="@(()=> { value = ""; })" />
-                }
-                @Suffix
-            </span>
-        }
-    </span>
-}
-else
-{
-
-    <input class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
 }
