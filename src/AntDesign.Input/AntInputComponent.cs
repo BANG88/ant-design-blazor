@@ -91,5 +91,16 @@ namespace AntDesign
 
         protected string InputClass => $"{this.getInputClassName()}".Trim();
 
+
+        protected void OnChangeHandler(UIChangeEventArgs ev)
+        {
+            if (disabled)
+            {
+                return;
+            }
+
+            OnChange.InvokeAsync(ev.Value.ToString());
+        }
+
     }
 }

@@ -31,5 +31,10 @@ namespace AntDesign
 
         [Parameter]
         public bool allowClear { get; set; }
+
+        [Parameter]
+        public string type { get; set; } = "text";
+        [Parameter]
+        protected EventCallback<string> OnChange { get; set; }
     }
 }
