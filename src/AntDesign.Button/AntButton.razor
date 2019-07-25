@@ -3,7 +3,7 @@
 
 @if (string.IsNullOrEmpty(href))
 {
-    <button type="@htmlType" class="@Class" style="@style" @onclick="@OnClickHandler" disabled=@(disabled)>
+    <button @attributes="Attributes" type="@htmlType" class="@Class" style="@style" @onclick="@OnClickHandler" disabled=@(disabled)>
         @{
             if (!string.IsNullOrEmpty(icon))
             {
@@ -20,7 +20,7 @@
 else
 {
 
-    <a class="@Class" href="@href" style="@style" @onclick="@OnClickHandler" disabled=@disabled>
+    <a @attributes="Attributes" class="@Class" href="@href" style="@style" @onclick="@OnClickHandler" disabled=@disabled>
         @{
             if (!string.IsNullOrEmpty(icon))
             {

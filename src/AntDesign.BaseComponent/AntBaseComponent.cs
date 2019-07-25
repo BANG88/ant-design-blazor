@@ -54,7 +54,7 @@ namespace AntDesign
         /// CaptureUnmatched Attributes
         /// </summary>
         [Parameter(CaptureUnmatchedValues = true)]
-        Dictionary<string, object> Attributes { get; set; }
+        protected Dictionary<string, object> Attributes { get; set; }
 
     }
 }

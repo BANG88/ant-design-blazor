@@ -5,7 +5,7 @@
 {
     @if (!hasPrefixSuffix)
     {
-        <input type="@(type)" onchange="@OnChangeHandler" class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
+        <input @attributes="Attributes" type="@(type)" onchange="@OnChangeHandler" class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
     }
     else
     {
@@ -14,7 +14,7 @@
             {
                 <span class="@($"{prefixCls}-prefix")">@Prefix</span>
             }
-            <input type="@(type)" onchange="@OnChangeHandler" class="@InputClass" placeholder="@placeholder" value="@value" disabled="@disabled" />
+            <input @attributes="Attributes" type="@(type)" onchange="@OnChangeHandler" class="@InputClass" placeholder="@placeholder" value="@value" disabled="@disabled" />
             @if (Suffix != null || allowClear)
             {
                 <span class="@($"{prefixCls}-suffix")">
@@ -39,7 +39,7 @@ else
             {
                 <span class="@addonClassName">@AddonBefore</span>
             }
-            <input type="@(type)" onchange="@OnChangeHandler" class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
+            <input @attributes="Attributes" type="@(type)" onchange="@OnChangeHandler" class="@InputClass" style="@style" placeholder="@placeholder" value="@value" disabled="@disabled" />
             @if (AddonAfter != null)
             {
                 <span class="@addonClassName">@AddonAfter</span>
