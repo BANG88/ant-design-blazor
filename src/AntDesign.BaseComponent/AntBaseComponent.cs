@@ -50,5 +50,11 @@ namespace AntDesign
 
         private string _style;
 
+        /// <summary>
+        /// CaptureUnmatched Attributes
+        /// </summary>
+        [Parameter(CaptureUnmatchedValues = true)]
+        Dictionary<string, object> Attributes { get; set; }
+
     }
 }
