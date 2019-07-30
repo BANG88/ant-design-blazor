@@ -25,10 +25,21 @@ namespace AntDesign
         [Inject] AntMessageService AntMessageService { get; set; }
         protected string prefixCls = getPrefixCls("message");
 
+        /// <summary>
+        /// duration in seconds
+        /// </summary>
+        [Parameter]
+        public double duration { get; set; } = 2;
+
         protected override void OnInit()
         {
             AntMessageService.OnShow += ShowMessage;
             AntMessageService.OnHide += HideMessage;
+        }
+        protected override void OnParametersSet()
+        {
+            AntMessageService.interval = duration;
+            base.OnParametersSet();
         }
         private void ShowMessage(string message, string messageType)
         {

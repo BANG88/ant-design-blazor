@@ -12,7 +12,7 @@ namespace AntDesign
     {
         public event Action<string, string> OnShow;
         public event Action OnHide;
-        public double interval = 2000;
+        public double interval;
         private Timer timer;
         public void Dispose()
         {
@@ -29,7 +29,7 @@ namespace AntDesign
         {
             if (timer == null)
             {
-                timer = new Timer(interval);
+                timer = new Timer(interval * 1000);
                 timer.Elapsed += hide;
                 timer.AutoReset = false;
             }
