@@ -38,6 +38,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AntDesign.BaseComponent\AntDesign.BaseComponent.csproj" />
+    <ProjectReference Include="..\AntDesign.Icon\AntDesign.Icon.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,15 +17,72 @@ namespace AntDesign
     /// <summary>
     /// Base Component for AntMessage
     /// </summary>
-    public class AntMessageComponent : AntBaseComponent
+    public class AntMessageComponent : AntBaseComponent, IDisposable
     {
+        protected bool IsVisible { get; set; }
+        protected string Message { get; set; }
+        protected string type { get; set; }
+        [Inject] AntMessageService AntMessageService { get; set; }
         protected string prefixCls = getPrefixCls("message");
-        protected override Task OnParametersSetAsync()
-        {
-            ClassNames.Clear()
-               .Add(prefixCls);
 
-            return base.OnParametersSetAsync();
+        protected override void OnInit()
+        {
+            AntMessageService.OnShow += ShowMessage;
+            AntMessageService.OnHide += HideMessage;
+        }
+        private void ShowMessage(string message, string messageType)
+        {
+            // rebuild
+            ClassNames.Clear()
+              .Add(prefixCls);
+            Message = message;
+
+            type = messageType ?? MessageType.info;
+
+            IsVisible = true;
+            StateHasChanged();
+        }
+        private void HideMessage()
+        {
+            IsVisible = false;
+            StateHasChanged();
+        }
+
+        public void Dispose()
+        {
+            AntMessageService.OnShow -= ShowMessage;
+        }
+        protected string IconTheme
+        {
+            get => IconType.Equals("loading") ? AntIconTheme.Outline : AntIconTheme.Fill;
+        }
+        public string IconType
+        {
+            get
+            {
+                string t;
+
+                switch (type)
+                {
+                    case MessageType.success:
+                        t = "check-circle";
+                        break;
+                    case MessageType.error:
+                        t = "close-circle";
+                        break;
+                    case MessageType.warning:
+                        t = "exclamation-circle";
+                        break;
+                    case MessageType.loading:
+                        t = "loading";
+                        break;
+                    default:
+                        t = "info-circle";
+                        break;
+                }
+
+                return t;
+            }
         }
     }
 }

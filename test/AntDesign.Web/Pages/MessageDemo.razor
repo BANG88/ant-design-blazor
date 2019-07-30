@@ -1,0 +1,24 @@
+@page "/message"
+
+@inject AntMessageService message
+
+<DemoContainer Component="message" Title="Message Demo">
+    <Content>
+        <AntButton OnClick="@(()=> message.Show("I'm an INFO message", MessageType.info))">
+            info
+        </AntButton>
+        <AntButton Type="@AntButtonType.Primary" OnClick="@(()=> message.Show("I'm a SUCCESS message", MessageType.success))">
+            success
+        </AntButton>
+        <AntButton Type="@AntButtonType.Dashed" OnClick="@(()=> message.Show("I'm a ERROR message", MessageType.error))">
+            error
+        </AntButton>
+        <AntButton Type="@AntButtonType.Danger" OnClick="@(()=> message.Show("I'm a WARNING message", MessageType.warning))">
+            warning
+        </AntButton>
+        <AntButton Type="@AntButtonType.Link" OnClick="@(()=> message.Show("I'm a LOADING message", MessageType.loading))">
+            loading
+        </AntButton>
+    </Content>
+</DemoContainer>
+

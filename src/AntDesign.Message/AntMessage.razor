@@ -1,5 +1,17 @@
 @namespace AntDesign
 @inherits AntMessageComponent
-<div class="@Class" style="@style">
 
+<div class="@Class" style="@style">
+    @if (IsVisible)
+    {
+        <div class="@($"{prefixCls}")-notice">
+            <div class="@($"{prefixCls}")-notice-content">
+                <div class="@($"{prefixCls}")-custom-content @($"{prefixCls}")-@($"{type}")">
+                    <AntIcon Type="@IconType" Theme="@IconTheme" />
+                    <span>@Message</span>
+                </div>
+            </div>
+        </div>
+    }
 </div>
+

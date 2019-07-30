@@ -45,6 +45,7 @@
     <ProjectReference Include="..\AntDesign.Grid\AntDesign.Grid.csproj" />
     <ProjectReference Include="..\AntDesign.Icon\AntDesign.Icon.csproj" />
     <ProjectReference Include="..\AntDesign.Layout\AntDesign.Layout.csproj" />
+    <ProjectReference Include="..\AntDesign.Message\AntDesign.Message.csproj" />
     <ProjectReference Include="..\AntDesign.Radio\AntDesign.Radio.csproj" />
     <ProjectReference Include="..\AntDesign.Switch\AntDesign.Switch.csproj" />
     <ProjectReference Include="..\AntDesign.Tag\AntDesign.Tag.csproj" />

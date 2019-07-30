@@ -20,6 +20,6 @@ dotnet add package AntDesign.Message
 
 ```razor
 
-<AntMessage />
+Add <AntMessage /> in your App.razor file.
 
 ```

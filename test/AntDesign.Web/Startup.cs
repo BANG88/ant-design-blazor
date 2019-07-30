@@ -7,6 +7,7 @@ namespace AntDesign.Web
     {
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddAntMessage();
         }
 
         public void Configure(IComponentsApplicationBuilder app)
