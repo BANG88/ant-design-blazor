@@ -1,3 +1,4 @@
 ### Components
 
-> Create a new Component via `merry blazor` plugin
+
+Create a new Component via `merry blazor` plugin
