@@ -3,24 +3,7 @@
 <CascadingValue Name="Timeline" Value="this">
     <ul @attributes="Attributes" class="@Class" style="@style">
         @ChildContent
-        @if (Pending != null && !reverse)
-        {
-            <AntTimelineItem pending="true">
-                <Dot>
-                    @if (PendingDot != null)
-                    {
-                        @PendingDot
-                    }
-                    else
-                    {
-                        <AntIcon Type="loading" />
-                    }
-                </Dot>
-                <ChildContent>
-                    @Pending
-                </ChildContent>
-            </AntTimelineItem>
-        }
+
         @foreach (var item in Items)
         {
             <li @attributes="item.Attributes" class="@item.Class @getPositionCls(item,index) @getLastCls(index)" style="@item.style">
@@ -32,23 +15,6 @@
             </li>
             index++;
         }
-        @if (Pending != null && reverse)
-        {
-            <AntTimelineItem pending="true">
-                <Dot>
-                    @if (PendingDot != null)
-                    {
-                        @PendingDot
-                    }
-                    else
-                    {
-                        <AntIcon Type="loading" />
-                    }
-                </Dot>
-                <ChildContent>
-                    @Pending
-                </ChildContent>
-            </AntTimelineItem>
-        }
+
     </ul>
 </CascadingValue>

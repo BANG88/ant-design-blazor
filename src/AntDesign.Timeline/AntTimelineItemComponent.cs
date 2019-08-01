@@ -15,9 +15,16 @@ namespace AntDesign
         public string prefixCls = getPrefixCls("timeline");
         protected override Task OnParametersSetAsync()
         {
+            setParams();
+
+            return base.OnParametersSetAsync();
+        }
+
+        public void setParams()
+        {
             ClassNames.Clear()
-               .Add($"{prefixCls}-item")
-               .Add($"{prefixCls}-item-pending", () => pending);
+                           .Add($"{prefixCls}-item")
+                           .Add($"{prefixCls}-item-pending", () => pending);
 
             /// dot class
             var c = new ClassNames();
@@ -30,9 +37,8 @@ namespace AntDesign
             /// dot style
             Regex rx = new Regex(@"blue|red|green");
             DotStyle = rx.IsMatch(color) ? "" : $"border-color: {color};";
-
-            return base.OnParametersSetAsync();
         }
+
         [Parameter]
         public string color { get; set; } = "blue";
 
@@ -61,8 +67,12 @@ namespace AntDesign
         [CascadingParameter(Name = "Timeline")] private AntTimelineComponent ParentTimeline { get; set; }
         protected override void OnInit()
         {
-            ParentTimeline.addItem(this);
+            add();
         }
 
+        public void add()
+        {
+            ParentTimeline.addItem(this);
+        }
     }
 }

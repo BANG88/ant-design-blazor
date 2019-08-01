@@ -44,9 +44,36 @@ namespace AntDesign
         {
             get
             {
-                if (reverse)
+                if (Pending != null)
                 {
-                    return Enumerable.Reverse(_items).ToList();
+                    AntTimelineItemComponent pendingItem = new AntTimelineItemComponent()
+                    {
+                        ChildContent = Pending,
+                        pending = true,
+                        Dot = PendingDot != null ? PendingDot : new RenderFragment(builder =>
+                        {
+                            builder.OpenComponent(0, typeof(AntIcon));
+                            builder.AddAttribute(1, "Type", "loading");
+                            builder.CloseComponent();
+                        }),
+                    };
+
+                    pendingItem.setParams();
+
+                    List<AntTimelineItemComponent> pendingItems = new List<AntTimelineItemComponent>() {
+                            pendingItem,
+                        };
+
+                    count++;
+
+                    if (reverse)
+                    {
+                        var items = Enumerable.Reverse(_items).ToList();
+                        return pendingItems.Concat(items).ToList();
+                    }
+
+                    return _items.Concat(pendingItems).ToList();
+
                 }
                 return _items;
             }
@@ -85,15 +112,14 @@ namespace AntDesign
         protected string getLastCls(int index)
         {
             string lastCls = $"{prefixCls}-item-last";
-
-            return !reverse && Pending != null ? index.Equals(count - 2) ? lastCls : "" : index.Equals(count - 1) ? lastCls : "";
+            int _count = count; //  Pending != null ? count + 1 : count;
+            return !reverse && Pending != null ? index.Equals(_count - 2) ? lastCls : "" : index.Equals(_count - 1) ? lastCls : "";
 
         }
         private List<AntTimelineItemComponent> _items { get; set; } = new List<AntTimelineItemComponent>() { };
         private int count { get; set; }
         public void addItem(AntTimelineItemComponent item)
         {
-            Console.WriteLine(Items);
             if (item == null || !item.GetType().ToString().Equals("AntDesign.AntTimelineItem"))
             {
                 return;
