@@ -40,7 +40,7 @@ namespace AntDesign
         public bool pending { get; set; }
 
         [Parameter]
-        public string position { get; set; }
+        public string position { get; set; } = "";
         [Parameter]
         public RenderFragment Dot { get; set; }
 

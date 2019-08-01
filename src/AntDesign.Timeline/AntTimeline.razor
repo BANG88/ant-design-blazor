@@ -2,15 +2,56 @@
 @inherits AntTimelineComponent
 <CascadingValue Name="Timeline" Value="this">
     <ul @attributes="Attributes" class="@Class" style="@style">
-        @foreach (var item in items)
+        @ChildContent
+        @if (Pending != null && !reverse)
         {
-            <li @attributes="item.Attributes" class="@item.Class" style="@item.style">
+            <AntTimelineItem pending="true">
+                <Dot>
+                    @if (PendingDot != null)
+                    {
+                        @PendingDot
+                    }
+                    else
+                    {
+                        <AntIcon Type="loading" />
+                    }
+                </Dot>
+                <ChildContent>
+                    @Pending
+                </ChildContent>
+            </AntTimelineItem>
+        }
+        @foreach (var item in getItems())
+        {
+            <li @attributes="item.Attributes" class="@item.Class @getPositionCls(item,index) @getLastCls(index)" style="@item.style">
                 <div class="@($"{item.prefixCls}")-item-tail"></div>
                 <div class="@item.DotClassName" style="@item.DotStyle">
                     @item.Dot
                 </div>
                 <div class="@($"{item.prefixCls}-item-content")">@item.ChildContent</div>
             </li>
+            index++;
+        }
+        @if (Pending != null && reverse)
+        {
+            <AntTimelineItem pending="true">
+                <Dot>
+                    @if (PendingDot != null)
+                    {
+                        @PendingDot
+                    }
+                    else
+                    {
+                        <AntIcon Type="loading" />
+                    }
+                </Dot>
+                <ChildContent>
+                    @Pending
+                </ChildContent>
+            </AntTimelineItem>
         }
     </ul>
 </CascadingValue>
+@code  {
+    int index = 0;
+}

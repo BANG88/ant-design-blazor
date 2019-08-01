@@ -1,12 +1,99 @@
 @page "/timeline"
 
 
-<DemoContainer Component="timeline" Title="Timeline Demo">
+<DemoContainer Component="timeline" Title="Basic timeline">
     <Content>
         <AntTimeline>
-            <AntTimelineItem>1</AntTimelineItem>
-            <AntTimelineItem>2</AntTimelineItem>
+            <AntTimelineItem>Create a services site 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>Solve initial network problems 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>Technical testing 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>Network problems being solved 2015-09-01</AntTimelineItem>
         </AntTimeline>
     </Content>
 </DemoContainer>
 
+
+<DemoContainer Component="timeline" Title="Alternate timeline">
+    <Content>
+        <AntTimeline mode="alternate">
+            <AntTimelineItem>Create a services site 2015-09-01</AntTimelineItem>
+            <AntTimelineItem color="green">Solve initial network problems 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>
+                <Dot>
+                    <AntIcon Type="clock-circle" style="font-size: 16px" />
+                </Dot>
+                <ChildContent>
+                    Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque
+                    laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto
+                    beatae vitae dicta sunt explicabo.
+                </ChildContent>
+            </AntTimelineItem>
+            <AntTimelineItem color="red">Network problems being solved 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>Create a services site 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>
+                <Dot>
+                    <AntIcon Type="clock-circle" style="font-size: 16px" />
+                </Dot>
+                <ChildContent>
+                    Technical testing 2015-09-01
+                </ChildContent>
+            </AntTimelineItem>
+        </AntTimeline>
+    </Content>
+</DemoContainer>
+
+
+<DemoContainer Component="timeline" Title="Set the color of circles. `green` means completed or success status, `red` means warning or error, and `blue` means ongoing or other default status.">
+    <Content>
+        <AntTimeline>
+            <AntTimelineItem>Create a services site 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>Solve initial network problems 2015-09-01</AntTimelineItem>
+            <AntTimelineItem color="red">
+                <Dot>
+                    <AntIcon Type="clock-circle" style="font-size: 16px" />
+                </Dot>
+                <ChildContent>
+                    Technical testing 2015-09-01
+                </ChildContent>
+            </AntTimelineItem>
+            <AntTimelineItem>Network problems being solved 2015-09-01</AntTimelineItem>
+        </AntTimeline>
+    </Content>
+</DemoContainer>
+
+<DemoContainer Component="timeline" Title="When the timeline is incomplete and ongoing, put a ghost node at last. Set `pending` as truthy value to enable displaying pending item. You can customize the pending content by passing a React Element. Meanwhile, `pendingDot={a React Element}` is used to customize the dot of the pending item. `reverse={true}` is used for reversing nodes.">
+    <Content>
+        <AntTimeline reverse="_reverse">
+            <Pending>Recording...</Pending>
+            <ChildContent>
+                <AntTimelineItem>Create a services site 2015-09-01</AntTimelineItem>
+                <AntTimelineItem>Solve initial network problems 2015-09-01</AntTimelineItem>
+                <AntTimelineItem>Technical testing 2015-09-01</AntTimelineItem>
+            </ChildContent>
+        </AntTimeline>
+        <AntButton type="primary" style="margin-top: 16px;" onClick="@(()=> _reverse = !_reverse)">
+            Toggle Reverse
+        </AntButton>
+    </Content>
+    @code {
+        bool _reverse = false;
+    }
+</DemoContainer>
+
+<DemoContainer Component="timeline" Title="Right alternate timeline.">
+    <Content>
+        <AntTimeline mode="right">
+            <AntTimelineItem>Create a services site 2015-09-01</AntTimelineItem>
+            <AntTimelineItem>Solve initial network problems 2015-09-01</AntTimelineItem>
+            <AntTimelineItem color="red">
+                <Dot>
+                    <AntIcon Type="clock-circle" style="font-size: 16px" />
+                </Dot>
+                <ChildContent>
+                    Technical testing 2015-09-01
+                </ChildContent>
+            </AntTimelineItem>
+            <AntTimelineItem>Network problems being solved 2015-09-01</AntTimelineItem>
+        </AntTimeline>
+    </Content>
+</DemoContainer>

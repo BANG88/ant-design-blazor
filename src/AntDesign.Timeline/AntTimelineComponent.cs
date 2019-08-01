@@ -20,7 +20,6 @@ namespace AntDesign
                .Add($"{prefixCls}-reverse", () => reverse)
                .Add($"{prefixCls}-{mode}", () => !string.IsNullOrEmpty(mode))
                ;
-
             return base.OnParametersSetAsync();
         }
 
@@ -28,7 +27,7 @@ namespace AntDesign
         /// 'left' | 'alternate' | 'right'
         /// </summary>
         [Parameter]
-        public string mode { get; set; }
+        public string mode { get; set; } = "";
 
         [Parameter]
         public bool reverse { get; set; }
@@ -41,11 +40,58 @@ namespace AntDesign
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        protected List<AntTimelineItemComponent> items { get; set; } = new List<AntTimelineItemComponent>() { };
+        protected List<AntTimelineItemComponent> getItems()
+        {
+            if (reverse)
+            {
+                _items.Reverse();
+            }
+            return _items;
+        }
 
+        protected string getPositionCls(AntTimelineItemComponent item, int index)
+        {
+
+            if (mode.Equals("alternate"))
+            {
+                if (item.position.Equals("right"))
+                {
+                    return $"{item.prefixCls}-item-right";
+                }
+                if (item.position.Equals("left"))
+                {
+                    return $"{item.prefixCls}-item-left";
+                }
+                return index % 2 == 0 ? $"{item.prefixCls}-item-left" : $"{item.prefixCls}-item-right";
+            }
+            if (mode.Equals("left"))
+            {
+                return $"{item.prefixCls}-item-left";
+            }
+            if (mode.Equals("right"))
+            {
+                return $"{item.prefixCls}-item-right";
+            }
+            if (item.position.Equals("right"))
+            {
+                return $"{item.prefixCls}-item-right";
+            }
+            return "";
+        }
+
+        protected string getLastCls(int index)
+        {
+            string lastCls = $"{prefixCls}-item-last";
+
+            return index.Equals(count - 1) ? lastCls : "";
+
+        }
+        private List<AntTimelineItemComponent> _items { get; set; } = new List<AntTimelineItemComponent>() { };
+        private int count { get; set; }
         public void addItem(AntTimelineItemComponent item)
         {
-            items.Add(item);
+            count++;
+            _items.Add(item);
             StateHasChanged();
         }
     }
