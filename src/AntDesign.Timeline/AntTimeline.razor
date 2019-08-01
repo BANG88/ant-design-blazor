@@ -21,7 +21,7 @@
                 </ChildContent>
             </AntTimelineItem>
         }
-        @foreach (var item in getItems())
+        @foreach (var item in Items)
         {
             <li @attributes="item.Attributes" class="@item.Class @getPositionCls(item,index) @getLastCls(index)" style="@item.style">
                 <div class="@($"{item.prefixCls}")-item-tail"></div>
@@ -52,6 +52,3 @@
         }
     </ul>
 </CascadingValue>
-@code  {
-    int index = 0;
-}

@@ -40,13 +40,16 @@ namespace AntDesign
         [Parameter]
         public RenderFragment ChildContent { get; set; }
 
-        protected List<AntTimelineItemComponent> getItems()
+        protected List<AntTimelineItemComponent> Items
         {
-            if (reverse)
+            get
             {
-                _items.Reverse();
+                if (reverse)
+                {
+                    return Enumerable.Reverse(_items).ToList();
+                }
+                return _items;
             }
-            return _items;
         }
 
         protected string getPositionCls(AntTimelineItemComponent item, int index)
@@ -83,16 +86,23 @@ namespace AntDesign
         {
             string lastCls = $"{prefixCls}-item-last";
 
-            return index.Equals(count - 1) ? lastCls : "";
+            return !reverse && Pending != null ? index.Equals(count - 2) ? lastCls : "" : index.Equals(count - 1) ? lastCls : "";
 
         }
         private List<AntTimelineItemComponent> _items { get; set; } = new List<AntTimelineItemComponent>() { };
         private int count { get; set; }
         public void addItem(AntTimelineItemComponent item)
         {
+            Console.WriteLine(Items);
+            if (item == null || !item.GetType().ToString().Equals("AntDesign.AntTimelineItem"))
+            {
+                return;
+            }
             count++;
             _items.Add(item);
             StateHasChanged();
         }
+        protected int index = 0;
+
     }
 }
