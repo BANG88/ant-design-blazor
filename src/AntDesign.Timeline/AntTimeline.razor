@@ -1,5 +1,16 @@
 @namespace AntDesign
 @inherits AntTimelineComponent
-<ul @attributes="Attributes" class="@Class" style="@style">
-    
-</ul>
+<CascadingValue Name="Timeline" Value="this">
+    <ul @attributes="Attributes" class="@Class" style="@style">
+        @foreach (var item in items)
+        {
+            <li @attributes="item.Attributes" class="@item.Class" style="@item.style">
+                <div class="@($"{item.prefixCls}")-item-tail"></div>
+                <div class="@item.DotClassName" style="@item.DotStyle">
+                    @item.Dot
+                </div>
+                <div class="@($"{item.prefixCls}-item-content")">@item.ChildContent</div>
+            </li>
+        }
+    </ul>
+</CascadingValue>

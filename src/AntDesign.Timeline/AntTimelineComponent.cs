@@ -1,6 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Text;
+using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Components;
 
@@ -40,5 +40,13 @@ namespace AntDesign
         public RenderFragment PendingDot { get; set; }
         [Parameter]
         public RenderFragment ChildContent { get; set; }
+
+        protected List<AntTimelineItemComponent> items { get; set; } = new List<AntTimelineItemComponent>() { };
+
+        public void addItem(AntTimelineItemComponent item)
+        {
+            items.Add(item);
+            StateHasChanged();
+        }
     }
 }

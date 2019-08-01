@@ -49,6 +49,7 @@
     <ProjectReference Include="..\AntDesign.Radio\AntDesign.Radio.csproj" />
     <ProjectReference Include="..\AntDesign.Switch\AntDesign.Switch.csproj" />
     <ProjectReference Include="..\AntDesign.Tag\AntDesign.Tag.csproj" />
+    <ProjectReference Include="..\AntDesign.Timeline\AntDesign.Timeline.csproj" />
     <ProjectReference Include="..\AntDesign.Typography\AntDesign.Typography.csproj" />
     <ProjectReference Include="..\AntDesign.Card\AntDesign.Card.csproj" />
     <ProjectReference Include="..\AntDesign.Input\AntDesign.Input.csproj" />

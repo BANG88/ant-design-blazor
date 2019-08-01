@@ -1,9 +1,4 @@
 @namespace AntDesign
 @inherits AntTimelineItemComponent
-<li @attributes="Attributes" class="@Class" style="@style">
-    <div class="@($"{prefixCls}")-item-tail"></div>
-    <div class="@DotClassName" style="@DotStyle">
-        @Dot
-    </div>
-    <div class="@($"{prefixCls}-item-content")">@ChildContent</div>
-</li>
+
+@ChildContent

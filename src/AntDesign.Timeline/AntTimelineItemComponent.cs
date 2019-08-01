@@ -12,17 +12,29 @@ namespace AntDesign
     /// </summary>
     public class AntTimelineItemComponent : AntBaseComponent
     {
-        protected string prefixCls = getPrefixCls("timeline");
+        public string prefixCls = getPrefixCls("timeline");
         protected override Task OnParametersSetAsync()
         {
             ClassNames.Clear()
                .Add($"{prefixCls}-item")
                .Add($"{prefixCls}-item-pending", () => pending);
 
+            /// dot class
+            var c = new ClassNames();
+            c.Add($"{prefixCls}-item-head")
+                .Add($"{prefixCls}-item-head-custom", () => Dot != null)
+                .Add($"{prefixCls}-item-head-{color}")
+                ;
+            DotClassName = c.ToString();
+
+            /// dot style
+            Regex rx = new Regex(@"blue|red|green");
+            DotStyle = rx.IsMatch(color) ? "" : $"border-color: {color};";
+
             return base.OnParametersSetAsync();
         }
         [Parameter]
-        public string color { get; set; }
+        public string color { get; set; } = "blue";
 
         [Parameter]
         public bool pending { get; set; }
@@ -37,24 +49,20 @@ namespace AntDesign
 
         public string DotClassName
         {
-            get
-            {
-                var c = new ClassNames();
-                c.Add($"{prefixCls}-item-head")
-                    .Add($"{prefixCls}-item-head-custom", () => Dot != null)
-                    .Add($"{prefixCls}-item-head-{color}")
-                    ;
-                return c.ToString();
-            }
+            get;
+            set;
         }
 
         public string DotStyle
         {
-            get
-            {
-                Regex rx = new Regex(@"/blue|red|green/");
-                return rx.IsMatch(color) ? "" : $"border-color: {color};";
-            }
+            get; set;
         }
+
+        [CascadingParameter(Name = "Timeline")] private AntTimelineComponent ParentTimeline { get; set; }
+        protected override void OnInit()
+        {
+            ParentTimeline.addItem(this);
+        }
+
     }
 }
